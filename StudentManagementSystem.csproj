@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\StudentLogic.cs" />
+    <Compile Include="DataAccessLayer\FileHandler.cs" />
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,9 +81,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessLogicLayer\" />
-    <Folder Include="DataAccessLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
