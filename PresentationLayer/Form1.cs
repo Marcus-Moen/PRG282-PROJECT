@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Krypton.Navigator;
 using Krypton.Ribbon;
 using Krypton.Toolkit;
+using StudentManagementSystem.PresentationLayer;
 
 namespace StudentManagementSystem
 {
@@ -28,6 +29,16 @@ namespace StudentManagementSystem
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            
+            this.Hide();
+            login.ShowDialog();
+
+            
         }
     }
 }
