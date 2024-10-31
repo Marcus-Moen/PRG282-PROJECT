@@ -34,12 +34,12 @@
             this.txtPassword = new Krypton.Toolkit.KryptonTextBox();
             this.btnLogin = new Krypton.Toolkit.KryptonButton();
             this.lblUsername = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.lblPassword = new Krypton.Toolkit.KryptonLabel();
             this.cbxShowPassword = new Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
+            this.lblWelcome = new Krypton.Toolkit.KryptonLabel();
+            this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.pnlRed.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -58,7 +58,7 @@
             // pnlRed
             // 
             this.pnlRed.BackColor = System.Drawing.Color.Salmon;
-            this.pnlRed.Controls.Add(this.kryptonPictureBox1);
+            this.pnlRed.Controls.Add(this.pbxLogo);
             this.pnlRed.Location = new System.Drawing.Point(0, 0);
             this.pnlRed.Name = "pnlRed";
             this.pnlRed.Size = new System.Drawing.Size(164, 578);
@@ -101,13 +101,13 @@
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Values.Text = "Username:";
             // 
-            // kryptonLabel2
+            // lblPassword
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(254, 217);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(79, 24);
-            this.kryptonLabel2.TabIndex = 6;
-            this.kryptonLabel2.Values.Text = "Password:";
+            this.lblPassword.Location = new System.Drawing.Point(254, 217);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(79, 24);
+            this.lblPassword.TabIndex = 6;
+            this.lblPassword.Values.Text = "Password:";
             // 
             // cbxShowPassword
             // 
@@ -118,25 +118,25 @@
             this.cbxShowPassword.Values.Text = "Show Password";
             this.cbxShowPassword.CheckedChanged += new System.EventHandler(this.cbxShowPassword_CheckedChanged);
             // 
-            // kryptonLabel1
+            // lblWelcome
             // 
-            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(213, 52);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(357, 35);
-            this.kryptonLabel1.TabIndex = 8;
-            this.kryptonLabel1.Values.ExtraText = "Student Management System";
-            this.kryptonLabel1.Values.Text = "Welcome";
+            this.lblWelcome.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
+            this.lblWelcome.Location = new System.Drawing.Point(213, 52);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(357, 35);
+            this.lblWelcome.TabIndex = 8;
+            this.lblWelcome.Values.ExtraText = "Student Management System";
+            this.lblWelcome.Values.Text = "Welcome";
             // 
-            // kryptonPictureBox1
+            // pbxLogo
             // 
-            this.kryptonPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonPictureBox1.Image")));
-            this.kryptonPictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.kryptonPictureBox1.Name = "kryptonPictureBox1";
-            this.kryptonPictureBox1.Size = new System.Drawing.Size(149, 117);
-            this.kryptonPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kryptonPictureBox1.TabIndex = 0;
-            this.kryptonPictureBox1.TabStop = false;
+            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
+            this.pbxLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(149, 117);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxLogo.TabIndex = 0;
+            this.pbxLogo.TabStop = false;
             // 
             // frmLogin
             // 
@@ -145,9 +145,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(577, 469);
-            this.Controls.Add(this.kryptonLabel1);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.cbxShowPassword);
-            this.Controls.Add(this.kryptonLabel2);
+            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -164,7 +164,7 @@
             | Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.Text = "Login";
             this.pnlRed.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,9 +176,9 @@
         private Krypton.Toolkit.KryptonTextBox txtPassword;
         private Krypton.Toolkit.KryptonButton btnLogin;
         private Krypton.Toolkit.KryptonLabel lblUsername;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonLabel lblPassword;
         private Krypton.Toolkit.KryptonCheckBox cbxShowPassword;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
+        private Krypton.Toolkit.KryptonLabel lblWelcome;
+        private Krypton.Toolkit.KryptonPictureBox pbxLogo;
     }
 }
