@@ -7,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Krypton.Navigator;
+using Krypton.Ribbon;
+using Krypton.Toolkit;
 
 namespace StudentManagementSystem
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         public Form1()
         {

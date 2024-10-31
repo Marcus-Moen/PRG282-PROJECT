@@ -15,9 +15,11 @@ namespace StudentManagementSystem.PresentationLayer
 {
     public partial class frmLogin : KryptonForm
     {
+        
         public frmLogin()
         {
             InitializeComponent();
+            
         }
 
         private void cbxShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -34,6 +36,14 @@ namespace StudentManagementSystem.PresentationLayer
             
         }
 
-        
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
+
+            Form1 frm = new Form1();
+
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -57,6 +57,8 @@
             // 
             // pnlRed
             // 
+            this.pnlRed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlRed.BackColor = System.Drawing.Color.Salmon;
             this.pnlRed.Controls.Add(this.pbxLogo);
             this.pnlRed.Location = new System.Drawing.Point(0, 0);
@@ -92,6 +94,7 @@
             this.btnLogin.StateCommon.Border.Rounding = 20F;
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Values.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblUsername
             // 
