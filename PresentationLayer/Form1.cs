@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Krypton.Navigator;
-using Krypton.Ribbon;
 using Krypton.Toolkit;
 using StudentManagementSystem.PresentationLayer;
 
