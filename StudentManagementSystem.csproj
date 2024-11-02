@@ -57,7 +57,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\Search.cs" />
     <Compile Include="BusinessLogicLayer\StudentLogic.cs" />
+    <Compile Include="BusinessLogicLayer\Update.cs" />
     <Compile Include="DataAccessLayer\FileHandler.cs" />
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>

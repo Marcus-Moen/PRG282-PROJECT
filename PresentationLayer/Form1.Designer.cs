@@ -49,6 +49,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.btnClear = new Krypton.Toolkit.KryptonButton();
+            this.btnViewAll = new System.Windows.Forms.Button();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -65,7 +67,7 @@
             this.fpnlNavigationBar.Controls.Add(this.btnLogout);
             this.fpnlNavigationBar.Location = new System.Drawing.Point(0, 0);
             this.fpnlNavigationBar.Name = "fpnlNavigationBar";
-            this.fpnlNavigationBar.Size = new System.Drawing.Size(113, 677);
+            this.fpnlNavigationBar.Size = new System.Drawing.Size(113, 664);
             this.fpnlNavigationBar.TabIndex = 14;
             // 
             // pbxLogo
@@ -132,19 +134,21 @@
             // dgvDetails
             // 
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetails.Location = new System.Drawing.Point(340, 117);
+            this.dgvDetails.Location = new System.Drawing.Point(362, 105);
             this.dgvDetails.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 51;
-            this.dgvDetails.Size = new System.Drawing.Size(655, 440);
+            this.dgvDetails.Size = new System.Drawing.Size(655, 454);
             this.dgvDetails.TabIndex = 0;
+            this.dgvDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellClick);
+            this.dgvDetails.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetails_RowHeaderMouseClick);
             // 
             // txtID
             // 
             this.txtID.Location = new System.Drawing.Point(136, 90);
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(192, 25);
+            this.txtID.Size = new System.Drawing.Size(192, 21);
             this.txtID.TabIndex = 1;
             // 
             // lblName
@@ -153,17 +157,16 @@
             this.lblName.Location = new System.Drawing.Point(135, 119);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(50, 17);
+            this.lblName.Size = new System.Drawing.Size(42, 13);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name: ";
-            this.lblName.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtCourse
             // 
             this.txtCourse.Location = new System.Drawing.Point(136, 240);
             this.txtCourse.Margin = new System.Windows.Forms.Padding(4);
             this.txtCourse.Name = "txtCourse";
-            this.txtCourse.Size = new System.Drawing.Size(192, 25);
+            this.txtCourse.Size = new System.Drawing.Size(192, 21);
             this.txtCourse.TabIndex = 3;
             // 
             // txtAge
@@ -171,7 +174,7 @@
             this.txtAge.Location = new System.Drawing.Point(136, 190);
             this.txtAge.Margin = new System.Windows.Forms.Padding(4);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(192, 25);
+            this.txtAge.Size = new System.Drawing.Size(192, 21);
             this.txtAge.TabIndex = 4;
             // 
             // txtName
@@ -179,7 +182,7 @@
             this.txtName.Location = new System.Drawing.Point(136, 140);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(192, 25);
+            this.txtName.Size = new System.Drawing.Size(192, 21);
             this.txtName.TabIndex = 5;
             // 
             // lblID
@@ -188,7 +191,7 @@
             this.lblID.Location = new System.Drawing.Point(133, 69);
             this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(71, 17);
+            this.lblID.Size = new System.Drawing.Size(65, 13);
             this.lblID.TabIndex = 6;
             this.lblID.Text = "Student ID:";
             // 
@@ -198,7 +201,7 @@
             this.lblAge.Location = new System.Drawing.Point(133, 169);
             this.lblAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(34, 17);
+            this.lblAge.Size = new System.Drawing.Size(30, 13);
             this.lblAge.TabIndex = 7;
             this.lblAge.Text = "Age:";
             // 
@@ -208,7 +211,7 @@
             this.lblCourse.Location = new System.Drawing.Point(133, 219);
             this.lblCourse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(52, 17);
+            this.lblCourse.Size = new System.Drawing.Size(46, 13);
             this.lblCourse.TabIndex = 8;
             this.lblCourse.Text = "Course:";
             // 
@@ -216,7 +219,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAdd.Location = new System.Drawing.Point(128, 494);
+            this.btnAdd.Location = new System.Drawing.Point(136, 518);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 41);
@@ -226,28 +229,29 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(235, 494);
+            this.btnUpdate.Location = new System.Drawing.Point(243, 518);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(97, 41);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(415, 66);
+            this.txtSearch.Location = new System.Drawing.Point(428, 66);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 25);
+            this.txtSearch.Size = new System.Drawing.Size(186, 21);
             this.txtSearch.TabIndex = 11;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(617, 56);
+            this.btnSearch.Location = new System.Drawing.Point(622, 64);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 41);
+            this.btnSearch.Size = new System.Drawing.Size(51, 22);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -259,16 +263,38 @@
             this.lblSearch.Location = new System.Drawing.Point(359, 69);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(54, 17);
+            this.lblSearch.Size = new System.Drawing.Size(61, 13);
             this.lblSearch.TabIndex = 13;
-            this.lblSearch.Text = "Search: ";
-            this.lblSearch.Click += new System.EventHandler(this.label1_Click_1);
+            this.lblSearch.Text = "Search ID: ";
+            // 
+            // btnClear
+            // 
+            this.btnClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom1;
+            this.btnClear.Location = new System.Drawing.Point(136, 278);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(62, 25);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Values.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.Location = new System.Drawing.Point(879, 55);
+            this.btnViewAll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(127, 41);
+            this.btnViewAll.TabIndex = 17;
+            this.btnViewAll.Text = "View All Students";
+            this.btnViewAll.UseVisualStyleBackColor = true;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 594);
+            this.ClientSize = new System.Drawing.Size(1048, 581);
+            this.Controls.Add(this.btnViewAll);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pnlTopBar);
             this.Controls.Add(this.fpnlNavigationBar);
             this.Controls.Add(this.lblSearch);
@@ -320,6 +346,8 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSearch;
+        private Krypton.Toolkit.KryptonButton btnClear;
+        private System.Windows.Forms.Button btnViewAll;
     }
 }
 
