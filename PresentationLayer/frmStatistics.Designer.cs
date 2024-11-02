@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStatistics));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fpnlNavigationBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.btnStudents = new System.Windows.Forms.Button();
@@ -39,17 +39,17 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlTopBar = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.kryptonGroupBox1 = new Krypton.Toolkit.KryptonGroupBox();
+            this.gbSummary = new Krypton.Toolkit.KryptonGroupBox();
             this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.rbTwo = new Krypton.Toolkit.KryptonRadioButton();
             this.btnSummary = new Krypton.Toolkit.KryptonButton();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
-            this.kryptonGroupBox1.Panel.SuspendLayout();
-            this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbSummary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbSummary.Panel)).BeginInit();
+            this.gbSummary.Panel.SuspendLayout();
+            this.gbSummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // fpnlNavigationBar
@@ -128,39 +128,42 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(205, 118);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
             // 
-            // kryptonGroupBox1
+            // gbSummary
             // 
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(731, 163);
-            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            this.gbSummary.CaptionStyle = Krypton.Toolkit.LabelStyle.SuperTip;
+            this.gbSummary.Location = new System.Drawing.Point(731, 163);
+            this.gbSummary.Name = "gbSummary";
             // 
-            // kryptonGroupBox1.Panel
+            // gbSummary.Panel
             // 
-            this.kryptonGroupBox1.Panel.Controls.Add(this.rbTwo);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.rbOne);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(265, 150);
-            this.kryptonGroupBox1.TabIndex = 18;
+            this.gbSummary.Panel.Controls.Add(this.rbTwo);
+            this.gbSummary.Panel.Controls.Add(this.rbOne);
+            this.gbSummary.Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonGroupBox1_Panel_Paint);
+            this.gbSummary.Size = new System.Drawing.Size(265, 150);
+            this.gbSummary.TabIndex = 18;
             // 
             // rbOne
             // 
-            this.rbOne.Location = new System.Drawing.Point(23, 4);
+            this.rbOne.Location = new System.Drawing.Point(23, 15);
             this.rbOne.Name = "rbOne";
             this.rbOne.Size = new System.Drawing.Size(85, 24);
             this.rbOne.TabIndex = 0;
             this.rbOne.Values.Text = "Pie Chart";
+            this.rbOne.CheckedChanged += new System.EventHandler(this.rbOne_CheckedChanged);
             // 
             // rbTwo
             // 
@@ -174,7 +177,7 @@
             // 
             this.btnSummary.Location = new System.Drawing.Point(669, 381);
             this.btnSummary.Name = "btnSummary";
-            this.btnSummary.Size = new System.Drawing.Size(180, 25);
+            this.btnSummary.Size = new System.Drawing.Size(199, 61);
             this.btnSummary.TabIndex = 19;
             this.btnSummary.Values.Text = "Print Summary";
             // 
@@ -184,7 +187,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 755);
             this.Controls.Add(this.btnSummary);
-            this.Controls.Add(this.kryptonGroupBox1);
+            this.Controls.Add(this.gbSummary);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.pnlTopBar);
             this.Controls.Add(this.fpnlNavigationBar);
@@ -193,11 +196,11 @@
             this.fpnlNavigationBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
-            this.kryptonGroupBox1.Panel.ResumeLayout(false);
-            this.kryptonGroupBox1.Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
-            this.kryptonGroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gbSummary.Panel)).EndInit();
+            this.gbSummary.Panel.ResumeLayout(false);
+            this.gbSummary.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbSummary)).EndInit();
+            this.gbSummary.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -211,7 +214,7 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel pnlTopBar;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
+        private Krypton.Toolkit.KryptonGroupBox gbSummary;
         private Krypton.Toolkit.KryptonRadioButton rbTwo;
         private Krypton.Toolkit.KryptonRadioButton rbOne;
         private Krypton.Toolkit.KryptonButton btnSummary;

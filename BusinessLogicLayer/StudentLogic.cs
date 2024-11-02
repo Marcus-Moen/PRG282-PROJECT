@@ -1,8 +1,10 @@
-﻿using System;
+﻿using StudentManagementSystem.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace StudentManagementSystem.BusinessLogicLayer
 {
@@ -42,6 +44,21 @@ namespace StudentManagementSystem.BusinessLogicLayer
         public string format()
         {
             return StuID + "," + StuName + "," + StuAge.ToString() + "," + StuCourse;
+        }
+
+        public void totalByCourse(List<StudentLogic> student)
+        {
+            FileHandler fh = new FileHandler();
+
+            student = fh.read();
+
+
+
+            foreach (var item in student)
+            {
+                
+            }
+
         }
     }
 }
