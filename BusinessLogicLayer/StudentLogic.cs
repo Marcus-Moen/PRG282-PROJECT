@@ -8,5 +8,40 @@ namespace StudentManagementSystem.BusinessLogicLayer
 {
     internal class StudentLogic
     {
+        string stuID;
+        string stuName;
+        int stuAge;
+        string stuCourse;
+        public StudentLogic(string ID,string Name,int Age,string Course)
+        {
+            this.stuID = ID;
+            this.stuName = Name;
+            this.stuAge = Age;
+            this.stuCourse = Course;
+        }
+        public string StuID
+        {
+            get { return stuID; }
+            set { stuID = value; }
+        }
+        public string StuName
+        {
+            get { return stuName; }
+            set { stuName = value; }
+        }
+        public int StuAge
+        {
+            get { return stuAge; }
+            set { stuAge = value; }
+        }
+        public string StuCourse
+        {
+            get { return stuCourse; }
+            set { stuCourse = value; }
+        }
+        public string format()
+        {
+            return StuID + "," + StuName + "," + StuAge.ToString() + "," + StuCourse;
+        }
     }
 }

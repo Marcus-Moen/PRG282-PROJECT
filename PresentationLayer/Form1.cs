@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Krypton.Toolkit;
+using StudentManagementSystem.BusinessLogicLayer;
+using StudentManagementSystem.DataAccessLayer;
 using StudentManagementSystem.PresentationLayer;
 
 namespace StudentManagementSystem
@@ -17,6 +19,9 @@ namespace StudentManagementSystem
         public Form1()
         {
             InitializeComponent();
+            FileHandler handler = new FileHandler();
+            List<StudentLogic> students = handler.read();
+            dgvDetails.DataSource = students;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,6 +42,11 @@ namespace StudentManagementSystem
             login.ShowDialog();
 
             
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
