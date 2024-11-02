@@ -33,16 +33,32 @@ namespace StudentManagementSystem.DataAccessLayer
         }
         public void write(List<StudentLogic> students)
         {
-
-            using (StreamWriter sw = new StreamWriter(path))
+            try
             {
-                
-                for (int i = 0; i < students.Count; i++) 
+                if (File.Exists(path))
                 {
+                    using (StreamWriter sw = new StreamWriter(path))
+                    {
 
-                    sw.WriteLine(students[i].format());
+                        for (int i = 0; i < students.Count; i++)
+                        {
+
+                            sw.WriteLine(students[i].format());
+                        }
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("File not found");
+                }
+                
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Error writing to file");
+                throw;
+            }
+            
         }
     }
 }

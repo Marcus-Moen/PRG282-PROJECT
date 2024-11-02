@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            
             this.txtUsername = new Krypton.Toolkit.KryptonTextBox();
             this.pnlRed = new System.Windows.Forms.Panel();
+            this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.txtPassword = new Krypton.Toolkit.KryptonTextBox();
             this.btnLogin = new Krypton.Toolkit.KryptonButton();
             this.lblUsername = new Krypton.Toolkit.KryptonLabel();
             this.lblPassword = new Krypton.Toolkit.KryptonLabel();
             this.cbxShowPassword = new Krypton.Toolkit.KryptonCheckBox();
             this.lblWelcome = new Krypton.Toolkit.KryptonLabel();
-            this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.pnlRed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +66,16 @@
             this.pnlRed.Name = "pnlRed";
             this.pnlRed.Size = new System.Drawing.Size(164, 578);
             this.pnlRed.TabIndex = 2;
+            // 
+            // pbxLogo
+            // 
+            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
+            this.pbxLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(149, 117);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxLogo.TabIndex = 0;
+            this.pbxLogo.TabStop = false;
             // 
             // txtPassword
             // 
@@ -131,21 +142,10 @@
             this.lblWelcome.Values.ExtraText = "Student Management System";
             this.lblWelcome.Values.Text = "Welcome";
             // 
-            // pbxLogo
-            // 
-            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(12, 12);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(149, 117);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxLogo.TabIndex = 0;
-            this.pbxLogo.TabStop = false;
-            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(577, 469);
             this.Controls.Add(this.lblWelcome);
@@ -156,6 +156,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.pnlRed);
             this.Controls.Add(this.txtUsername);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
