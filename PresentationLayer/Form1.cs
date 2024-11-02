@@ -96,5 +96,10 @@ namespace StudentManagementSystem
             List<StudentLogic> students = handler.read();
             dgvDetails.DataSource = students;
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

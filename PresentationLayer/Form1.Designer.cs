@@ -38,7 +38,6 @@
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtCourse = new System.Windows.Forms.TextBox();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnClear = new Krypton.Toolkit.KryptonButton();
             this.btnViewAll = new System.Windows.Forms.Button();
+            this.cmbCourses = new System.Windows.Forms.ComboBox();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -161,14 +161,6 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name: ";
             // 
-            // txtCourse
-            // 
-            this.txtCourse.Location = new System.Drawing.Point(136, 240);
-            this.txtCourse.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCourse.Name = "txtCourse";
-            this.txtCourse.Size = new System.Drawing.Size(192, 25);
-            this.txtCourse.TabIndex = 3;
-            // 
             // txtAge
             // 
             this.txtAge.Location = new System.Drawing.Point(136, 190);
@@ -226,6 +218,7 @@
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -288,11 +281,20 @@
             this.btnViewAll.UseVisualStyleBackColor = true;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
+            // cmbCourses
+            // 
+            this.cmbCourses.FormattingEnabled = true;
+            this.cmbCourses.Location = new System.Drawing.Point(138, 240);
+            this.cmbCourses.Name = "cmbCourses";
+            this.cmbCourses.Size = new System.Drawing.Size(190, 25);
+            this.cmbCourses.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 581);
+            this.Controls.Add(this.cmbCourses);
             this.Controls.Add(this.btnViewAll);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pnlTopBar);
@@ -307,7 +309,6 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtAge);
-            this.Controls.Add(this.txtCourse);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.dgvDetails);
@@ -336,7 +337,6 @@
         private System.Windows.Forms.DataGridView dgvDetails;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtCourse;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblID;
@@ -349,6 +349,7 @@
         private System.Windows.Forms.Label lblSearch;
         private Krypton.Toolkit.KryptonButton btnClear;
         private System.Windows.Forms.Button btnViewAll;
+        private System.Windows.Forms.ComboBox cmbCourses;
     }
 }
 
