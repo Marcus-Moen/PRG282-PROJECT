@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStatistics));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fpnlNavigationBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.btnStudents = new System.Windows.Forms.Button();
@@ -40,8 +40,8 @@
             this.pnlTopBar = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gbSummary = new Krypton.Toolkit.KryptonGroupBox();
-            this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.rbTwo = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.btnSummary = new Krypton.Toolkit.KryptonButton();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -128,16 +128,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(205, 118);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
@@ -156,6 +156,15 @@
             this.gbSummary.Size = new System.Drawing.Size(265, 150);
             this.gbSummary.TabIndex = 18;
             // 
+            // rbTwo
+            // 
+            this.rbTwo.Location = new System.Drawing.Point(23, 48);
+            this.rbTwo.Name = "rbTwo";
+            this.rbTwo.Size = new System.Drawing.Size(79, 24);
+            this.rbTwo.TabIndex = 1;
+            this.rbTwo.Values.Text = "Average";
+            this.rbTwo.CheckedChanged += new System.EventHandler(this.rbTwo_CheckedChanged);
+            // 
             // rbOne
             // 
             this.rbOne.Location = new System.Drawing.Point(23, 15);
@@ -164,14 +173,6 @@
             this.rbOne.TabIndex = 0;
             this.rbOne.Values.Text = "Pie Chart";
             this.rbOne.CheckedChanged += new System.EventHandler(this.rbOne_CheckedChanged);
-            // 
-            // rbTwo
-            // 
-            this.rbTwo.Location = new System.Drawing.Point(23, 48);
-            this.rbTwo.Name = "rbTwo";
-            this.rbTwo.Size = new System.Drawing.Size(79, 24);
-            this.rbTwo.TabIndex = 1;
-            this.rbTwo.Values.Text = "Average";
             // 
             // btnSummary
             // 

@@ -40,5 +40,20 @@ namespace StudentManagementSystem.PresentationLayer
             };
 
         }
+
+        private void rbTwo_CheckedChanged(object sender, EventArgs e)
+        {
+            chart1.Series.Clear();
+
+
+
+            // Set up a new bar chart series
+            Series series = new Series("Sales")
+            {
+                ChartType = SeriesChartType.Bar,       // Set chart type to bar
+                IsValueShownAsLabel = true,            // Show labels on chart
+                
+            };
+        }
     }
 }
