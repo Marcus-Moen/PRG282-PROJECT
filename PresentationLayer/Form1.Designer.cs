@@ -104,6 +104,7 @@
             this.btnStatistics.TabIndex = 3;
             this.btnStatistics.Text = "Statistics";
             this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // btnLogout
             // 

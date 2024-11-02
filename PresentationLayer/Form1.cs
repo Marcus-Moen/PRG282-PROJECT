@@ -48,5 +48,12 @@ namespace StudentManagementSystem
         {
 
         }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+             frmStatistics statistics = new frmStatistics();
+            this.Hide();
+            statistics.ShowDialog();
+        }
     }
 }
