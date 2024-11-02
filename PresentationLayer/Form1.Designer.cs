@@ -50,7 +50,7 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnClear = new Krypton.Toolkit.KryptonButton();
             this.btnViewAll = new System.Windows.Forms.Button();
-            this.cmbCourses = new System.Windows.Forms.ComboBox();
+            this.cmbCourse = new System.Windows.Forms.ComboBox();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -281,20 +281,20 @@
             this.btnViewAll.UseVisualStyleBackColor = true;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
-            // cmbCourses
+            // cmbCourse
             // 
-            this.cmbCourses.FormattingEnabled = true;
-            this.cmbCourses.Location = new System.Drawing.Point(138, 240);
-            this.cmbCourses.Name = "cmbCourses";
-            this.cmbCourses.Size = new System.Drawing.Size(190, 25);
-            this.cmbCourses.TabIndex = 18;
+            this.cmbCourse.FormattingEnabled = true;
+            this.cmbCourse.Location = new System.Drawing.Point(138, 240);
+            this.cmbCourse.Name = "cmbCourse";
+            this.cmbCourse.Size = new System.Drawing.Size(190, 25);
+            this.cmbCourse.TabIndex = 18;
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 581);
-            this.Controls.Add(this.cmbCourses);
+            this.Controls.Add(this.cmbCourse);
             this.Controls.Add(this.btnViewAll);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pnlTopBar);
@@ -349,7 +349,7 @@
         private System.Windows.Forms.Label lblSearch;
         private Krypton.Toolkit.KryptonButton btnClear;
         private System.Windows.Forms.Button btnViewAll;
-        private System.Windows.Forms.ComboBox cmbCourses;
+        private System.Windows.Forms.ComboBox cmbCourse;
     }
 }
 

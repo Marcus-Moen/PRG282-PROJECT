@@ -46,7 +46,7 @@ namespace StudentManagementSystem
             FileHandler handler = new FileHandler();
             Update update = new Update();
 
-            update.updateStudents(txtID.Text,txtName.Text,int.Parse(txtAge.Text),txtCourse.Text);
+            update.updateStudents(txtID.Text,txtName.Text,int.Parse(txtAge.Text),cmbCourse.Text);
             
             List<StudentLogic> students = handler.read();
             dgvDetails.DataSource = students;
@@ -64,7 +64,7 @@ namespace StudentManagementSystem
                 txtID.Text = row.Cells["stuID"].Value?.ToString(); 
                 txtName.Text = row.Cells["stuName"].Value?.ToString();
                 txtAge.Text = row.Cells["stuAge"].Value?.ToString();
-                txtCourse.Text = row.Cells["stuCourse"].Value?.ToString();
+                cmbCourse.Text = row.Cells["stuCourse"].Value?.ToString();
             }
         }
 
@@ -73,7 +73,7 @@ namespace StudentManagementSystem
             txtID.Text = "";
             txtName.Text = "";
             txtAge.Text = "";
-            txtCourse.Text = "";
+            
         }
 
         private void dgvDetails_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -86,7 +86,7 @@ namespace StudentManagementSystem
                 txtID.Text = row.Cells["stuID"].Value?.ToString();
                 txtName.Text = row.Cells["stuName"].Value?.ToString();
                 txtAge.Text = row.Cells["stuAge"].Value?.ToString();
-                txtCourse.Text = row.Cells["stuCourse"].Value?.ToString();
+                cmbCourse.Text = row.Cells["stuCourse"].Value?.ToString();
             }
         }
 
