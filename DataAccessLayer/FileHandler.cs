@@ -14,6 +14,7 @@ namespace StudentManagementSystem.DataAccessLayer
     internal class FileHandler
     {
         public string path = AppDomain.CurrentDomain.BaseDirectory + @"\StudentDetails.txt";
+        public string sumPath = AppDomain.CurrentDomain.BaseDirectory + @"\Summary.txt";
         public List<StudentLogic> read()
         {
             List<StudentLogic> students = new List<StudentLogic>();
@@ -42,6 +43,16 @@ namespace StudentManagementSystem.DataAccessLayer
 
                     sw.WriteLine(students[i].format());
                 }
+            }
+        }
+
+        public void writeSummary(string output)
+        {
+
+            using (StreamWriter sw = new StreamWriter(sumPath))
+            {          
+
+                    sw.WriteLine(output);    
             }
         }
     }

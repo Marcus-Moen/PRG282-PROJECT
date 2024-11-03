@@ -1,6 +1,7 @@
 ﻿using StudentManagementSystem.DataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,19 +47,6 @@ namespace StudentManagementSystem.BusinessLogicLayer
             return StuID + "," + StuName + "," + StuAge.ToString() + "," + StuCourse;
         }
 
-        public void totalByCourse(List<StudentLogic> student)
-        {
-            FileHandler fh = new FileHandler();
-
-            student = fh.read();
-
-
-
-            foreach (var item in student)
-            {
-                
-            }
-
-        }
+  
     }
 }
