@@ -265,6 +265,33 @@
             this.lblSearch.Text = "Search: ";
             this.lblSearch.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            this.btnClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom1;
+            this.btnClear.Location = new System.Drawing.Point(136, 286);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(62, 25);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Values.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.Location = new System.Drawing.Point(879, 55);
+            this.btnViewAll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(127, 41);
+            this.btnViewAll.TabIndex = 17;
+            this.btnViewAll.Text = "View All Students";
+            this.btnViewAll.UseVisualStyleBackColor = true;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
+            // 
+            // cmbCourse
+            // 
+            this.cmbCourse.FormattingEnabled = true;
+            this.cmbCourse.Location = new System.Drawing.Point(138, 240);
+            this.cmbCourse.Name = "cmbCourse";
+            this.cmbCourse.Size = new System.Drawing.Size(190, 25);
+            this.cmbCourse.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
