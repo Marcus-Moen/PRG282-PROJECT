@@ -101,5 +101,10 @@ namespace StudentManagementSystem
         {
 
         }
+
+        private void cmbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

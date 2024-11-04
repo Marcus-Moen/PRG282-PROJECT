@@ -284,10 +284,16 @@
             // cmbCourse
             // 
             this.cmbCourse.FormattingEnabled = true;
+            this.cmbCourse.Items.AddRange(new object[] {
+            "Bachelor of Computing",
+            "Diploma in IT ",
+            "Bachelor in IT ",
+            "Certificate :IT"});
             this.cmbCourse.Location = new System.Drawing.Point(138, 240);
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(190, 25);
             this.cmbCourse.TabIndex = 18;
+            this.cmbCourse.SelectedIndexChanged += new System.EventHandler(this.cmbCourse_SelectedIndexChanged);
             // 
             // Form1
             // 
