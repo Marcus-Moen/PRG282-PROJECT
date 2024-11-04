@@ -9,11 +9,9 @@ namespace StudentManagementSystem.BusinessLogicLayer
 {
     internal class Functions
     {
-
+        FileHandler fh = new FileHandler();
         public int[] countCourse(List<StudentLogic> student) 
         {
-            FileHandler fh = new FileHandler();
-
             student = fh.read();
 
             int[] count = new int[4];
@@ -83,7 +81,6 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         public double[] averageAge(List<StudentLogic> student)
       {
-            FileHandler fh = new FileHandler();
 
             student = fh.read();
 
@@ -131,7 +128,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         public string formatSummary(List<StudentLogic> student)
         {
-            FileHandler fh = new FileHandler();
+          
 
             student = fh.read();
 
@@ -148,12 +145,13 @@ namespace StudentManagementSystem.BusinessLogicLayer
                 total += item;
             }
 
-            string output = $@"The total number of students are:{total}
-                            There are {Count[0]} students in Bachelor of Computing,
-                             {Count[1]} students in Diploma in IT,
-                             {Count[2]} students in Bachelor in IT ,
-                              {Count[3]} students in Certificate: IT
-                              The average age of the students is : {average}";
+            string output = $@"
+Total number of students: {total}
+Bachelor of Computing : {Count[0]},
+Diploma in IT : {Count[1]},
+Bachelor in IT {Count[2]},
+Certificate: IT : {Count[3]}
+Average age of the students: {average}";
             return output;
 
         }
@@ -162,7 +160,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
         {
             double average = 0;
 
-            FileHandler fh = new FileHandler();
+         
 
             student = fh.read();
 
@@ -184,7 +182,6 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         public List<StudentLogic> addStudent(List<StudentLogic> student,string ID, string name,int age ,string course) 
         {
-          FileHandler fh = new FileHandler();
 
             student = fh.read();
 
