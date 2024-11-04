@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <EnableWindowsFormsHighDpiAutoResizing>true</EnableWindowsFormsHighDpiAutoResizing>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <EnableWindowsFormsHighDpiAutoResizing>true</EnableWindowsFormsHighDpiAutoResizing>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <EnableWindowsFormsHighDpiAutoResizing>true</EnableWindowsFormsHighDpiAutoResizing>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Krypton.Toolkit, Version=85.24.10.288, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
@@ -57,8 +60,10 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicLayer\Functions.cs" />
-    <Compile Include="BusinessLogicLayer\StudentLogic.cs" />
+	<Compile Include="BusinessLogicLayer\Search.cs" />
+	<Compile Include="BusinessLogicLayer\Functions.cs" />
+	<Compile Include="BusinessLogicLayer\StudentLogic.cs" />
+    <Compile Include="BusinessLogicLayer\Update.cs" />
     <Compile Include="DataAccessLayer\FileHandler.cs" />
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>

@@ -38,7 +38,6 @@
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtCourse = new System.Windows.Forms.TextBox();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -49,6 +48,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.btnClear = new Krypton.Toolkit.KryptonButton();
+            this.btnViewAll = new System.Windows.Forms.Button();
+            this.cmbCourse = new System.Windows.Forms.ComboBox();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -65,7 +67,7 @@
             this.fpnlNavigationBar.Controls.Add(this.btnLogout);
             this.fpnlNavigationBar.Location = new System.Drawing.Point(0, 0);
             this.fpnlNavigationBar.Name = "fpnlNavigationBar";
-            this.fpnlNavigationBar.Size = new System.Drawing.Size(113, 677);
+            this.fpnlNavigationBar.Size = new System.Drawing.Size(113, 664);
             this.fpnlNavigationBar.TabIndex = 14;
             // 
             // pbxLogo
@@ -127,18 +129,20 @@
             this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.pnlTopBar.Location = new System.Drawing.Point(103, 0);
             this.pnlTopBar.Name = "pnlTopBar";
-            this.pnlTopBar.Size = new System.Drawing.Size(957, 39);
+            this.pnlTopBar.Size = new System.Drawing.Size(965, 39);
             this.pnlTopBar.TabIndex = 15;
             // 
             // dgvDetails
             // 
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetails.Location = new System.Drawing.Point(340, 117);
+            this.dgvDetails.Location = new System.Drawing.Point(362, 105);
             this.dgvDetails.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 51;
-            this.dgvDetails.Size = new System.Drawing.Size(655, 440);
+            this.dgvDetails.Size = new System.Drawing.Size(655, 454);
             this.dgvDetails.TabIndex = 0;
+            this.dgvDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellClick);
+            this.dgvDetails.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetails_RowHeaderMouseClick);
             // 
             // txtID
             // 
@@ -157,15 +161,6 @@
             this.lblName.Size = new System.Drawing.Size(50, 17);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name: ";
-            this.lblName.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtCourse
-            // 
-            this.txtCourse.Location = new System.Drawing.Point(136, 240);
-            this.txtCourse.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCourse.Name = "txtCourse";
-            this.txtCourse.Size = new System.Drawing.Size(192, 25);
-            this.txtCourse.TabIndex = 3;
             // 
             // txtAge
             // 
@@ -217,27 +212,29 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAdd.Location = new System.Drawing.Point(128, 494);
+            this.btnAdd.Location = new System.Drawing.Point(136, 518);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 41);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(235, 494);
+            this.btnUpdate.Location = new System.Drawing.Point(243, 518);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(97, 41);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(415, 66);
+            this.txtSearch.Location = new System.Drawing.Point(437, 66);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(186, 25);
@@ -245,10 +242,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(617, 56);
+            this.btnSearch.Location = new System.Drawing.Point(631, 64);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 41);
+            this.btnSearch.Size = new System.Drawing.Size(66, 27);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -260,10 +257,38 @@
             this.lblSearch.Location = new System.Drawing.Point(359, 69);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(54, 17);
+            this.lblSearch.Size = new System.Drawing.Size(70, 17);
             this.lblSearch.TabIndex = 13;
-            this.lblSearch.Text = "Search: ";
-            this.lblSearch.Click += new System.EventHandler(this.label1_Click_1);
+            this.lblSearch.Text = "Search ID: ";
+            // 
+            // btnClear
+            // 
+            this.btnClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom1;
+            this.btnClear.Location = new System.Drawing.Point(136, 286);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(62, 25);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Values.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.Location = new System.Drawing.Point(879, 55);
+            this.btnViewAll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(127, 41);
+            this.btnViewAll.TabIndex = 17;
+            this.btnViewAll.Text = "View All Students";
+            this.btnViewAll.UseVisualStyleBackColor = true;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
+            // 
+            // cmbCourse
+            // 
+            this.cmbCourse.FormattingEnabled = true;
+            this.cmbCourse.Location = new System.Drawing.Point(138, 240);
+            this.cmbCourse.Name = "cmbCourse";
+            this.cmbCourse.Size = new System.Drawing.Size(190, 25);
+            this.cmbCourse.TabIndex = 18;
             // 
             //this.btnClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom1;
             //this.btnClear.Location = new System.Drawing.Point(136, 286);
@@ -294,9 +319,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 594);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1056, 581);
+            this.Controls.Add(this.cmbCourse);
+            this.Controls.Add(this.btnViewAll);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pnlTopBar);
             this.Controls.Add(this.fpnlNavigationBar);
             this.Controls.Add(this.lblSearch);
@@ -309,10 +337,10 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtAge);
-            this.Controls.Add(this.txtCourse);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.dgvDetails);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -337,7 +365,6 @@
         private System.Windows.Forms.DataGridView dgvDetails;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtCourse;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblID;
@@ -348,6 +375,9 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSearch;
+        private Krypton.Toolkit.KryptonButton btnClear;
+        private System.Windows.Forms.Button btnViewAll;
+        private System.Windows.Forms.ComboBox cmbCourse;
     }
 }
 
