@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Krypton.Toolkit;
+using StudentManagementSystem.BusinessLogicLayer;
+using StudentManagementSystem.DataAccessLayer;
 
 namespace StudentManagementSystem.PresentationLayer
 {
     public partial class frmLogin : KryptonForm
     {
-        
+        private FileHandler file = new FileHandler();
+        private Functions Functions = new Functions(); 
         public frmLogin()
         {
             InitializeComponent();
@@ -39,9 +42,16 @@ namespace StudentManagementSystem.PresentationLayer
             
 
             Form1 frm = new Form1();
+            if (Functions.signin(file.logins(),txtUsername.Text,txtPassword.Text))
+            {
+               frm.ShowDialog();
+            this.Close(); 
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login Details");
+            }
 
-            frm.ShowDialog();
-            this.Close();
         }
 
         
