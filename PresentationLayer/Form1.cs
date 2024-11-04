@@ -16,10 +16,11 @@ namespace StudentManagementSystem
 {
     public partial class Form1 : KryptonForm
     {
+        FileHandler handler = new FileHandler();
         public Form1()
         {
             InitializeComponent();
-            FileHandler handler = new FileHandler();
+           
             List<StudentLogic> students = handler.read();
             dgvDetails.DataSource = students;
         }
@@ -43,7 +44,7 @@ namespace StudentManagementSystem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FileHandler handler = new FileHandler();
+            
             Update update = new Update();
 
             update.updateStudents(txtID.Text,txtName.Text,int.Parse(txtAge.Text),cmbCourse.Text);
@@ -92,7 +93,7 @@ namespace StudentManagementSystem
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            FileHandler handler = new FileHandler();
+            
             List<StudentLogic> students = handler.read();
             dgvDetails.DataSource = students;
         }
@@ -114,8 +115,6 @@ namespace StudentManagementSystem
             Functions f = new Functions();
 
            student = f.addStudent(student,id,name,age,course);
-
-            FileHandler handler = new FileHandler();
 
             handler.write(student);
 
@@ -145,7 +144,6 @@ namespace StudentManagementSystem
                     if (result == DialogResult.Yes)
                     {
                         // Use the FileHandler class to remove the student from the file
-                        FileHandler handler = new FileHandler();
                         List<StudentLogic> students = handler.read();
 
                         // Filter out the student to be deleted
