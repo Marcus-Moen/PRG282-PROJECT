@@ -81,7 +81,6 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         public double[] averageAge(List<StudentLogic> student)
       {
-
             student = fh.read();
 
             int[] count = countCourse(student);
@@ -121,9 +120,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
             average[2] = tBIT / count[2];
             average[3] = tCIT/ count[3];
           
-
             return average;
-
         }
 
         public string formatSummary(List<StudentLogic> student)
@@ -190,6 +187,11 @@ Average age of the students: {average}";
 
             return student;
            
+        }
+
+        public void ValidateInput()
+        { 
+        
         }
 
     }

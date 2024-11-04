@@ -152,7 +152,10 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(192, 25);
             this.txtID.TabIndex = 1;
+            this.txtID.Text = "Enter Student ID";
             this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            this.txtID.Enter += new System.EventHandler(this.txtID_Enter);
+            this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
             // lblName
             // 
@@ -171,6 +174,9 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(192, 25);
             this.txtAge.TabIndex = 4;
+            this.txtAge.Text = "Enter Student Age";
+            this.txtAge.Enter += new System.EventHandler(this.txtAge_Enter);
+            this.txtAge.Leave += new System.EventHandler(this.txtAge_Leave);
             // 
             // txtName
             // 
@@ -179,6 +185,9 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(192, 25);
             this.txtName.TabIndex = 5;
+            this.txtName.Text = "Enter Student Name";
+            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // lblID
             // 
@@ -295,6 +304,7 @@
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(190, 25);
             this.cmbCourse.TabIndex = 18;
+            this.cmbCourse.Text = "Choose A Course";
             // 
             // btnDelete
             // 

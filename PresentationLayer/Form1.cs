@@ -71,10 +71,12 @@ namespace StudentManagementSystem
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtID.Text = "";
-            txtName.Text = "";
-            txtAge.Text = "";
-            
+            txtID.Text = "Enter Student ID";
+            txtName.Text = "Enter Student Name";
+            txtAge.Text = "Enter Student Age";
+            cmbCourse.Text = "Choose A Course";
+
+
         }
 
         private void dgvDetails_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -175,6 +177,61 @@ namespace StudentManagementSystem
         private void txtID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtID_Enter(object sender, EventArgs e)
+        {
+            if (txtID.Text == "Enter Student ID")
+            {
+                txtID.Text = "";
+                txtID.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtID_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                txtID.Text = "Enter Student ID";
+                txtID.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtName_Enter(object sender, EventArgs e)
+        {
+            if (txtName.Text == "Enter Student Name")
+            {
+                txtName.Text = "";
+                txtName.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                txtName.Text = "Enter Student Name";
+                txtName.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtAge_Enter(object sender, EventArgs e)
+        {
+            if (txtAge.Text == "Enter Student Age")
+            {
+                txtAge.Text = "";
+                txtAge.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void txtAge_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAge.Text))
+            {
+                txtAge.Text = "Enter Student Age";
+                txtAge.ForeColor = Color.Gray;
+            }
         }
     }
 }
