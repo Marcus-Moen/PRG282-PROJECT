@@ -182,5 +182,18 @@ namespace StudentManagementSystem.BusinessLogicLayer
             return average;
         }
 
+        public List<StudentLogic> addStudent(List<StudentLogic> student,string ID, string name,int age ,string course) 
+        {
+          FileHandler fh = new FileHandler();
+
+            student = fh.read();
+
+
+            student.Add(new StudentLogic(ID,name,age,course));
+
+            return student;
+           
+        }
+
     }
 }

@@ -150,8 +150,9 @@
             this.txtID.Location = new System.Drawing.Point(136, 90);
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(192, 21);
+            this.txtID.Size = new System.Drawing.Size(192, 25);
             this.txtID.TabIndex = 1;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // lblName
             // 
@@ -159,7 +160,7 @@
             this.lblName.Location = new System.Drawing.Point(135, 119);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(42, 13);
+            this.lblName.Size = new System.Drawing.Size(50, 17);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name: ";
             // 
@@ -168,7 +169,7 @@
             this.txtAge.Location = new System.Drawing.Point(136, 190);
             this.txtAge.Margin = new System.Windows.Forms.Padding(4);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(192, 21);
+            this.txtAge.Size = new System.Drawing.Size(192, 25);
             this.txtAge.TabIndex = 4;
             // 
             // txtName
@@ -176,7 +177,7 @@
             this.txtName.Location = new System.Drawing.Point(136, 140);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(192, 21);
+            this.txtName.Size = new System.Drawing.Size(192, 25);
             this.txtName.TabIndex = 5;
             // 
             // lblID
@@ -185,7 +186,7 @@
             this.lblID.Location = new System.Drawing.Point(133, 69);
             this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(65, 13);
+            this.lblID.Size = new System.Drawing.Size(71, 17);
             this.lblID.TabIndex = 6;
             this.lblID.Text = "Student ID:";
             // 
@@ -195,7 +196,7 @@
             this.lblAge.Location = new System.Drawing.Point(133, 169);
             this.lblAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(30, 13);
+            this.lblAge.Size = new System.Drawing.Size(34, 17);
             this.lblAge.TabIndex = 7;
             this.lblAge.Text = "Age:";
             // 
@@ -205,7 +206,7 @@
             this.lblCourse.Location = new System.Drawing.Point(133, 219);
             this.lblCourse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(46, 13);
+            this.lblCourse.Size = new System.Drawing.Size(52, 17);
             this.lblCourse.TabIndex = 8;
             this.lblCourse.Text = "Course:";
             // 
@@ -237,7 +238,7 @@
             this.txtSearch.Location = new System.Drawing.Point(437, 66);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 21);
+            this.txtSearch.Size = new System.Drawing.Size(186, 25);
             this.txtSearch.TabIndex = 11;
             // 
             // btnSearch
@@ -257,7 +258,7 @@
             this.lblSearch.Location = new System.Drawing.Point(359, 69);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(61, 13);
+            this.lblSearch.Size = new System.Drawing.Size(70, 17);
             this.lblSearch.TabIndex = 13;
             this.lblSearch.Text = "Search ID: ";
             // 
@@ -292,36 +293,8 @@
             "Certificate :IT"});
             this.cmbCourse.Location = new System.Drawing.Point(138, 240);
             this.cmbCourse.Name = "cmbCourse";
-            this.cmbCourse.Size = new System.Drawing.Size(190, 20);
+            this.cmbCourse.Size = new System.Drawing.Size(190, 25);
             this.cmbCourse.TabIndex = 18;
-            //this.cmbCourse.SelectedIndexChanged += new System.EventHandler(this.cmbCourse_SelectedIndexChanged);
-            // 
-            //this.btnClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom1;
-            //this.btnClear.Location = new System.Drawing.Point(136, 286);
-            //this.btnClear.Name = "btnClear";
-            //this.btnClear.Size = new System.Drawing.Size(62, 25);
-            //this.btnClear.TabIndex = 16;
-            //this.btnClear.Values.Text = "Clear";
-            //this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnViewAll
-            // 
-            //this.btnViewAll.Location = new System.Drawing.Point(879, 55);
-            //this.btnViewAll.Margin = new System.Windows.Forms.Padding(4);
-            //this.btnViewAll.Name = "btnViewAll";
-            //this.btnViewAll.Size = new System.Drawing.Size(127, 41);
-            //this.btnViewAll.TabIndex = 17;
-            //this.btnViewAll.Text = "View All Students";
-            //this.btnViewAll.UseVisualStyleBackColor = true;
-            //this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
-            // 
-            // cmbCourse
-            // 
-            //this.cmbCourse.FormattingEnabled = true;
-            //this.cmbCourse.Location = new System.Drawing.Point(138, 240);
-            //this.cmbCourse.Name = "cmbCourse";
-            //this.cmbCourse.Size = new System.Drawing.Size(190, 25);
-            //this.cmbCourse.TabIndex = 18;
             // 
             // btnDelete
             // 

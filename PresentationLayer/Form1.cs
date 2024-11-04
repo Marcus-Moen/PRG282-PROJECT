@@ -99,6 +99,25 @@ namespace StudentManagementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            List<StudentLogic> student = new List<StudentLogic>();
+
+            string id="";
+            string name="";
+            int age = 0;
+            string course = "";
+
+            id = txtID.Text;
+            name = txtName.Text;
+            age = int.Parse(txtAge.Text);
+            course = cmbCourse.SelectedItem.ToString();
+
+            Functions f = new Functions();
+
+           student = f.addStudent(student,id,name,age,course);
+
+            FileHandler handler = new FileHandler();
+
+            handler.write(student);
 
         }
 
@@ -149,6 +168,11 @@ namespace StudentManagementSystem
 
 
         private void cmbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
         {
 
         }
