@@ -119,6 +119,8 @@ namespace StudentManagementSystem
 
             handler.write(student);
 
+            dgvDetails.DataSource = student;
+
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
