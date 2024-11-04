@@ -120,5 +120,21 @@ namespace StudentManagementSystem.PresentationLayer
             f2.writeSummary(output);
 
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+
+            this.Hide();
+            login.ShowDialog();
+        }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+
+            this.Hide();
+            form.ShowDialog();
+        }
     }
 }

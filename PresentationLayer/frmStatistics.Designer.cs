@@ -89,6 +89,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = true;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnStatistics
             // 
@@ -116,6 +117,7 @@
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pnlTopBar
             // 
