@@ -51,6 +51,7 @@
             this.btnClear = new Krypton.Toolkit.KryptonButton();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.cmbCourse = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -148,7 +149,7 @@
             this.txtID.Location = new System.Drawing.Point(136, 90);
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(192, 25);
+            this.txtID.Size = new System.Drawing.Size(192, 21);
             this.txtID.TabIndex = 1;
             // 
             // lblName
@@ -157,7 +158,7 @@
             this.lblName.Location = new System.Drawing.Point(135, 119);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(50, 17);
+            this.lblName.Size = new System.Drawing.Size(42, 13);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name: ";
             // 
@@ -166,7 +167,7 @@
             this.txtAge.Location = new System.Drawing.Point(136, 190);
             this.txtAge.Margin = new System.Windows.Forms.Padding(4);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(192, 25);
+            this.txtAge.Size = new System.Drawing.Size(192, 21);
             this.txtAge.TabIndex = 4;
             // 
             // txtName
@@ -174,7 +175,7 @@
             this.txtName.Location = new System.Drawing.Point(136, 140);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(192, 25);
+            this.txtName.Size = new System.Drawing.Size(192, 21);
             this.txtName.TabIndex = 5;
             // 
             // lblID
@@ -183,7 +184,7 @@
             this.lblID.Location = new System.Drawing.Point(133, 69);
             this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(71, 17);
+            this.lblID.Size = new System.Drawing.Size(65, 13);
             this.lblID.TabIndex = 6;
             this.lblID.Text = "Student ID:";
             // 
@@ -193,7 +194,7 @@
             this.lblAge.Location = new System.Drawing.Point(133, 169);
             this.lblAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(34, 17);
+            this.lblAge.Size = new System.Drawing.Size(30, 13);
             this.lblAge.TabIndex = 7;
             this.lblAge.Text = "Age:";
             // 
@@ -203,18 +204,17 @@
             this.lblCourse.Location = new System.Drawing.Point(133, 219);
             this.lblCourse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(52, 17);
+            this.lblCourse.Size = new System.Drawing.Size(46, 13);
             this.lblCourse.TabIndex = 8;
             this.lblCourse.Text = "Course:";
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.LightBlue;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
             this.btnAdd.Location = new System.Drawing.Point(136, 518);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(99, 41);
+            this.btnAdd.Size = new System.Drawing.Size(62, 32);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -222,10 +222,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(243, 518);
+            this.btnUpdate.Location = new System.Drawing.Point(206, 518);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 41);
+            this.btnUpdate.Size = new System.Drawing.Size(60, 32);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -236,7 +236,7 @@
             this.txtSearch.Location = new System.Drawing.Point(437, 66);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 25);
+            this.txtSearch.Size = new System.Drawing.Size(186, 21);
             this.txtSearch.TabIndex = 11;
             // 
             // btnSearch
@@ -256,7 +256,7 @@
             this.lblSearch.Location = new System.Drawing.Point(359, 69);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(70, 17);
+            this.lblSearch.Size = new System.Drawing.Size(61, 13);
             this.lblSearch.TabIndex = 13;
             this.lblSearch.Text = "Search ID: ";
             // 
@@ -291,15 +291,27 @@
             "Certificate :IT"});
             this.cmbCourse.Location = new System.Drawing.Point(138, 240);
             this.cmbCourse.Name = "cmbCourse";
-            this.cmbCourse.Size = new System.Drawing.Size(190, 25);
+            this.cmbCourse.Size = new System.Drawing.Size(190, 20);
             this.cmbCourse.TabIndex = 18;
             this.cmbCourse.SelectedIndexChanged += new System.EventHandler(this.cmbCourse_SelectedIndexChanged);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(274, 518);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(60, 32);
+            this.btnDelete.TabIndex = 19;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 581);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cmbCourse);
             this.Controls.Add(this.btnViewAll);
             this.Controls.Add(this.btnClear);
@@ -356,6 +368,7 @@
         private Krypton.Toolkit.KryptonButton btnClear;
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.ComboBox cmbCourse;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
