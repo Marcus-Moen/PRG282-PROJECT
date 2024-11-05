@@ -15,6 +15,7 @@ namespace StudentManagementSystem.DataAccessLayer
     {
         public string path = AppDomain.CurrentDomain.BaseDirectory + @"\StudentDetails.txt";
         public string sumPath = AppDomain.CurrentDomain.BaseDirectory + @"\Summary.txt";
+        public string logPath = AppDomain.CurrentDomain.BaseDirectory + @"\logins.txt";
         public List<StudentLogic> read()
         {
             List<StudentLogic> students = new List<StudentLogic>();
@@ -70,6 +71,22 @@ namespace StudentManagementSystem.DataAccessLayer
 
                     sw.WriteLine(output);    
             }
+        }
+        public List<User> logins()
+        {
+            List<User> users = new List<User>();
+            string[] LineParts;
+            using (StreamReader sr = new StreamReader(logPath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    LineParts = line.Split(',');
+                    users.Add(new User(LineParts[0], LineParts[1]));
+
+                }
+            }
+            return users;
         }
     }
 }

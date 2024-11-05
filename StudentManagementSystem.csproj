@@ -64,6 +64,7 @@
     <Compile Include="BusinessLogicLayer\Functions.cs" />
     <Compile Include="BusinessLogicLayer\StudentLogic.cs" />
     <Compile Include="BusinessLogicLayer\Update.cs" />
+    <Compile Include="BusinessLogicLayer\User.cs" />
     <Compile Include="DataAccessLayer\FileHandler.cs" />
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>
