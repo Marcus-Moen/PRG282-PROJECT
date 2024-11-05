@@ -81,7 +81,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         public double[] averageAge(List<StudentLogic> student)
       {
-            student = fh.read();
+           
 
             int[] count = countCourse(student);
 

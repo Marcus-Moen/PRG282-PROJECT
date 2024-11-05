@@ -72,12 +72,12 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void rbTwo_CheckedChanged(object sender, EventArgs e)
         {
-           
+           FileHandler fh = new FileHandler();
 
             Functions f = new Functions();
 
 
-            List<StudentLogic> student = new List<StudentLogic>();
+            List<StudentLogic> student = fh.read();
 
             double[] total= new double[4];
 

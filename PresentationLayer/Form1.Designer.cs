@@ -147,6 +147,7 @@
             // 
             // txtID
             // 
+            this.txtID.ForeColor = System.Drawing.Color.Black;
             this.txtID.Location = new System.Drawing.Point(136, 90);
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
@@ -169,6 +170,7 @@
             // 
             // txtAge
             // 
+            this.txtAge.ForeColor = System.Drawing.Color.Black;
             this.txtAge.Location = new System.Drawing.Point(136, 190);
             this.txtAge.Margin = new System.Windows.Forms.Padding(4);
             this.txtAge.Name = "txtAge";
@@ -180,6 +182,7 @@
             // 
             // txtName
             // 
+            this.txtName.ForeColor = System.Drawing.Color.Black;
             this.txtName.Location = new System.Drawing.Point(136, 140);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
@@ -294,6 +297,7 @@
             // 
             // cmbCourse
             // 
+            this.cmbCourse.ForeColor = System.Drawing.Color.Black;
             this.cmbCourse.FormattingEnabled = true;
             this.cmbCourse.Items.AddRange(new object[] {
             "Bachelor of Computing",

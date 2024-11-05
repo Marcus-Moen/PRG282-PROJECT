@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
+using System.Xml.Linq;
 using Krypton.Toolkit;
 using StudentManagementSystem.BusinessLogicLayer;
 using StudentManagementSystem.DataAccessLayer;
@@ -72,10 +75,17 @@ namespace StudentManagementSystem
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtID.Text = "Enter Student ID";
-            txtName.Text = "Enter Student Name";
-            txtAge.Text = "Enter Student Age";
-            cmbCourse.Text = "Choose A Course";
+            txtID.ForeColor = Color.Gray;
 
+            txtName.Text = "Enter Student Name";
+            txtName.ForeColor = Color.Gray;
+
+            txtAge.Text = "Enter Student Age";
+            txtAge.ForeColor = Color.Gray;
+
+            cmbCourse.Text = "Choose A Course";
+            cmbCourse.SelectedItem = null;
+            cmbCourse.ForeColor = Color.Black;
 
         }
 
@@ -103,24 +113,37 @@ namespace StudentManagementSystem
         private void btnAdd_Click(object sender, EventArgs e)
         {
             List<StudentLogic> student = new List<StudentLogic>();
+            Functions f = new Functions();
+
 
             string id="";
             string name="";
-            int age = 0;
+            string age = "";
             string course = "";
 
-            id = txtID.Text;
-            name = txtName.Text;
-            age = int.Parse(txtAge.Text);
-            course = cmbCourse.SelectedItem.ToString();
+           
 
-            Functions f = new Functions();
+            bool flagBlank = true;
+            bool flagvalidate = true;
 
-           student = f.addStudent(student,id,name,age,course);
+            if (flagBlank == CheckIfBlank())
+            {
+                id = txtID.Text;
+                name = txtName.Text;
+                age = txtAge.Text;
+                course = cmbCourse.SelectedItem.ToString();
+                if (flagvalidate == ValidateInput(id,age))
+                {
+                    student = f.addStudent(student, id, name, int.Parse(age), course);
 
-            handler.write(student);
+                    handler.write(student);
 
-            dgvDetails.DataSource = student;
+                    dgvDetails.DataSource = student;
+                }
+
+             
+            }
+
 
         }
 
@@ -232,6 +255,79 @@ namespace StudentManagementSystem
                 txtAge.Text = "Enter Student Age";
                 txtAge.ForeColor = Color.Gray;
             }
+        }
+
+        //string id,string name,string age,string course
+        public bool CheckIfBlank() 
+        {
+            bool flag = true;    
+
+            if (txtID.Text== "Enter Student ID")
+            {
+                flag = false;
+                txtID.ForeColor = Color.Red;
+                
+            }
+
+            if (txtName.Text == "Enter Student Name")
+            {
+                flag = false;
+                txtName.ForeColor = Color.Red;
+              
+            }
+
+            if (txtAge.Text == "Enter Student Age")
+            {
+                flag = false;
+                txtAge.ForeColor = Color.Red;
+             
+            }
+
+            if (cmbCourse.SelectedItem ==null)
+            {
+                flag = false;
+                cmbCourse.ForeColor = Color.Red;
+                
+            }
+            
+
+            if (flag==false)
+            {
+                MessageBox.Show("A field cannot be left blank");
+            }
+
+            return flag;
+        }
+
+        public bool ValidateInput(string id, string age)
+        {
+            bool flag = true;
+
+            FileHandler handler = new FileHandler();
+
+            foreach (char c in age)
+            {
+                if (!char.IsDigit(c))
+                {
+                    flag = false;
+                    MessageBox.Show("Age can only contain numbers");
+                    break;
+                }
+            }
+
+            List<StudentLogic> student = handler.read();
+
+            foreach (var item in student)
+            {
+                if (item.StuID==id)
+                {
+                    flag = false;
+                    MessageBox.Show("Duplicate IDS not allowed");
+                }
+            }
+
+            return flag;
+
         }
     }
 }
