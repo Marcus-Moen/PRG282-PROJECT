@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Xml.Linq;
@@ -265,29 +266,30 @@ namespace StudentManagementSystem
             if (txtID.Text== "Enter Student ID")
             {
                 flag = false;
-                txtID.ForeColor = Color.Red;
-                
+                ChangeTextBoxColor(txtID);
+
             }
 
             if (txtName.Text == "Enter Student Name")
             {
                 flag = false;
-                txtName.ForeColor = Color.Red;
-              
+                ChangeTextBoxColor(txtName);
+
             }
 
             if (txtAge.Text == "Enter Student Age")
             {
                 flag = false;
-                txtAge.ForeColor = Color.Red;
-             
+                ChangeTextBoxColor(txtAge);
+
+
             }
 
             if (cmbCourse.SelectedItem ==null)
             {
                 flag = false;
-                cmbCourse.ForeColor = Color.Red;
-                
+                ChangeComboBoxColor(cmbCourse);
+
             }
             
 
@@ -328,6 +330,50 @@ namespace StudentManagementSystem
 
             return flag;
 
+        }
+
+        private void ChangeTextBoxColor(TextBox textBox)
+        {
+            // Store the original color
+            Color originalColor = textBox.ForeColor;
+
+            // Start a new thread to handle the temporary color change
+
+            Thread thread = new Thread(() =>
+            {
+                // Change the ForeColor using Invoke to access the UI thread
+                textBox.Invoke((MethodInvoker)(() => textBox.ForeColor = Color.Red));
+
+                // Wait for the specified duration
+                Thread.Sleep(3000);
+
+                // Revert the color back to the original
+                textBox.Invoke((MethodInvoker)(() => textBox.ForeColor = originalColor));
+            });
+
+            thread.Start();
+        }
+
+        private void ChangeComboBoxColor(ComboBox textBox)
+        {
+            // Store the original color
+            Color originalColor = textBox.ForeColor;
+
+            // Start a new thread to handle the temporary color change
+
+            Thread thread = new Thread(() =>
+            {
+                // Change the ForeColor using Invoke to access the UI thread
+                textBox.Invoke((MethodInvoker)(() => textBox.ForeColor = Color.Red));
+
+                // Wait for the specified duration
+                Thread.Sleep(3000);
+
+                // Revert the color back to the original
+                textBox.Invoke((MethodInvoker)(() => textBox.ForeColor = originalColor));
+            });
+
+            thread.Start();
         }
     }
 }

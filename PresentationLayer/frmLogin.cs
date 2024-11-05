@@ -42,10 +42,10 @@ namespace StudentManagementSystem.PresentationLayer
             
 
             Form1 frm = new Form1();
-            if (Functions.signin(file.logins(),txtUsername.Text,txtPassword.Text))
+            if (Functions.signin(file.logins(), txtUsername.Text, txtPassword.Text))
             {
-               frm.ShowDialog();
-            this.Close(); 
+                frm.ShowDialog();
+                this.Close();
             }
             else
             {
@@ -54,6 +54,9 @@ namespace StudentManagementSystem.PresentationLayer
 
         }
 
-        
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -200,16 +200,6 @@ Average age of the students: {average}";
             }
             return false;
         }
-        public bool signin(List<User> users,string user,string pass)
-        {
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].Users == user && users[i].Pass == pass)
-                {
-                    return true; 
-                }
-            }
-            return false;
-        }
+      
     }
 }
