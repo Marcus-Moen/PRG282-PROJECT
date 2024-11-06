@@ -3,7 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+
 
 namespace StudentManagementSystem.BusinessLogicLayer
 {
@@ -200,6 +204,39 @@ Average age of the students: {average}";
             }
             return false;
         }
-      
+
+        public bool ValidateInput(string id, string age)
+        {
+            bool flag = true;
+
+            FileHandler handler = new FileHandler();
+
+            foreach (char c in age)
+            {
+                if (!char.IsDigit(c))
+                {
+                    flag = false;
+                    MessageBox.Show("Age can only contain numbers");
+                    break;
+                }
+            }
+
+            List<StudentLogic> student = handler.read();
+
+            foreach (var item in student)
+            {
+                if (item.StuID == id)
+                {
+                    flag = false;
+                    MessageBox.Show("Duplicate IDS not allowed");
+                }
+            }
+
+            return flag;
+
+        }
+
+       
+
     }
 }

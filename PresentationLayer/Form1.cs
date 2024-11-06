@@ -133,7 +133,7 @@ namespace StudentManagementSystem
                 name = txtName.Text;
                 age = txtAge.Text;
                 course = cmbCourse.SelectedItem.ToString();
-                if (flagvalidate == ValidateInput(id,age))
+                if (flagvalidate == f.ValidateInput(id,age))
                 {
                     student = f.addStudent(student, id, name, int.Parse(age), course);
 
@@ -301,38 +301,7 @@ namespace StudentManagementSystem
             return flag;
         }
 
-        public bool ValidateInput(string id, string age)
-        {
-            bool flag = true;
-
-            FileHandler handler = new FileHandler();
-
-            foreach (char c in age)
-            {
-                if (!char.IsDigit(c))
-                {
-                    flag = false;
-                    MessageBox.Show("Age can only contain numbers");
-                    break;
-                }
-            }
-
-            List<StudentLogic> student = handler.read();
-
-            foreach (var item in student)
-            {
-                if (item.StuID==id)
-                {
-                    flag = false;
-                    MessageBox.Show("Duplicate IDS not allowed");
-                }
-            }
-
-            return flag;
-
-        }
-
-        private void ChangeTextBoxColor(TextBox textBox)
+        public void ChangeTextBoxColor(TextBox textBox)
         {
             // Store the original color
             Color originalColor = textBox.ForeColor;
@@ -354,7 +323,7 @@ namespace StudentManagementSystem
             thread.Start();
         }
 
-        private void ChangeComboBoxColor(ComboBox textBox)
+        public void ChangeComboBoxColor(ComboBox textBox)
         {
             // Store the original color
             Color originalColor = textBox.ForeColor;
@@ -375,5 +344,9 @@ namespace StudentManagementSystem
 
             thread.Start();
         }
+
+
+
+
     }
 }
