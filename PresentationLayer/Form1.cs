@@ -24,7 +24,7 @@ namespace StudentManagementSystem
         public Form1()
         {
             InitializeComponent();
-            MessageBox.Show("Please enter in the Data Password under under the label and click enter password button");
+            
           
         }
 
