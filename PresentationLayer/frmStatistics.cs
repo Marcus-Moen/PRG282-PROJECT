@@ -15,6 +15,9 @@ namespace StudentManagementSystem.PresentationLayer
 {
     public partial class frmStatistics : Form
     {
+        FileHandler fh = new FileHandler();
+
+        Functions f = new Functions();
         public frmStatistics()
         {
             InitializeComponent();
@@ -33,7 +36,6 @@ namespace StudentManagementSystem.PresentationLayer
 
             chart1.Series.Clear();
 
-            Functions f = new Functions(); 
 
             // Set up a new pie chart series
             Series series = new Series("Totals")
@@ -72,24 +74,21 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void rbTwo_CheckedChanged(object sender, EventArgs e)
         {
-           FileHandler fh = new FileHandler();
-
-            Functions f = new Functions();
+          
 
 
             List<StudentLogic> student = fh.read();
 
-            double[] total= new double[4];
+            double[] total = f.averageAge(student);
 
             chart1.Series.Clear();
-            total = f.averageAge(student);
+            
 
             // Set up a new bar chart series
             Series series = new Series("Average Ages")
             {
                 ChartType = SeriesChartType.Column,       // Set chart type to bar
-                IsValueShownAsLabel = true          // Show labels on chart
-                
+                IsValueShownAsLabel = true          // Show labels on chart            
             };
 
 
@@ -102,22 +101,20 @@ namespace StudentManagementSystem.PresentationLayer
 
             chart1.ChartAreas[0].AxisX.Title = "Course";
             chart1.ChartAreas[0].AxisY.Title = "Average Ages";
-            
-
 
         }
 
         private void btnSummary_Click(object sender, EventArgs e)
         {
-            Functions f = new Functions();
-            FileHandler f2 = new FileHandler();
+           
+          
 
             List<StudentLogic> student = new List<StudentLogic>();
             string output = f.formatSummary(student);
 
             rtbSummary.Text = output;
 
-            f2.writeSummary(output);
+            fh.writeSummary(output);
 
         }
 

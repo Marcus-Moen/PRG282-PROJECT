@@ -42,15 +42,15 @@ namespace StudentManagementSystem.PresentationLayer
             
 
             Form1 frm = new Form1();
-            if (Functions.signin(file.logins(), txtUsername.Text, txtPassword.Text))
-            {
+            //if (Functions.signin(file.logins(), txtUsername.Text, txtPassword.Text))
+            //{
                 frm.ShowDialog();
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect login Details");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Incorrect login Details");
+            //}
 
         }
 
