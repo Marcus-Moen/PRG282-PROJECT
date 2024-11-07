@@ -8,12 +8,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Krypton.Toolkit;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace StudentManagementSystem.PresentationLayer
 {
-    public partial class frmStatistics : Form
+    public partial class frmStatistics : KryptonForm
     {
         FileHandler fh = new FileHandler();
 
@@ -133,5 +134,7 @@ namespace StudentManagementSystem.PresentationLayer
             this.Hide();
             form.ShowDialog();
         }
+
+        
     }
 }

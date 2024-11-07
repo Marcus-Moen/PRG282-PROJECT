@@ -62,9 +62,9 @@
             this.fpnlNavigationBar.Controls.Add(this.btnStudents);
             this.fpnlNavigationBar.Controls.Add(this.btnStatistics);
             this.fpnlNavigationBar.Controls.Add(this.btnLogout);
-            this.fpnlNavigationBar.Location = new System.Drawing.Point(-2, 2);
+            this.fpnlNavigationBar.Location = new System.Drawing.Point(-2, 0);
             this.fpnlNavigationBar.Name = "fpnlNavigationBar";
-            this.fpnlNavigationBar.Size = new System.Drawing.Size(127, 758);
+            this.fpnlNavigationBar.Size = new System.Drawing.Size(127, 606);
             this.fpnlNavigationBar.TabIndex = 15;
             // 
             // pbxLogo
@@ -124,7 +124,7 @@
             this.pnlTopBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.pnlTopBar.Location = new System.Drawing.Point(122, 2);
+            this.pnlTopBar.Location = new System.Drawing.Point(122, 0);
             this.pnlTopBar.Name = "pnlTopBar";
             this.pnlTopBar.Size = new System.Drawing.Size(966, 42);
             this.pnlTopBar.TabIndex = 16;
@@ -198,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 755);
+            this.ClientSize = new System.Drawing.Size(1024, 603);
             this.Controls.Add(this.rtbSummary);
             this.Controls.Add(this.btnSummary);
             this.Controls.Add(this.gbSummary);
@@ -206,6 +206,8 @@
             this.Controls.Add(this.pnlTopBar);
             this.Controls.Add(this.fpnlNavigationBar);
             this.Name = "frmStatistics";
+            this.PaletteMode = Krypton.Toolkit.PaletteMode.Microsoft365Black;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStatistics";
             this.fpnlNavigationBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
