@@ -195,7 +195,9 @@ namespace StudentManagementSystem
             if (f.check(txtbPass.Text) == true)
             {
                 key = txtbPass.Text;
-               
+               handler.write(students,key);
+                students = handler.read(key);
+                dgvDetails.DataSource = students;
 
             }
             else
