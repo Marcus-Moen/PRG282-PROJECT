@@ -13,9 +13,14 @@ namespace StudentManagementSystem.BusinessLogicLayer
     internal class Search
     {
         FileHandler fileHandler = new FileHandler();
+        private string key;
+        public void getKey(string possibleKey)
+        {
+            key = possibleKey;
+        }
         public List<StudentLogic> searchStudents(string id)
         {
-            List<StudentLogic> students = fileHandler.read();
+            List<StudentLogic> students = fileHandler.read(key);
             List<StudentLogic> studentFound = new List<StudentLogic>();
             bool found = false;
             for (int i = 0; i < students.Count; i++) 

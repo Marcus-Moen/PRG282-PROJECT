@@ -16,13 +16,16 @@ namespace StudentManagementSystem
 {
     public partial class Form1 : KryptonForm
     {
-        FileHandler handler = new FileHandler();
+        static FileHandler handler = new FileHandler();
+        Functions f = new Functions();
+        public static string key;
+         List<StudentLogic> students = new List<StudentLogic>();
+        
         public Form1()
         {
             InitializeComponent();
-           
-            List<StudentLogic> students = handler.read();
-            dgvDetails.DataSource = students;
+            MessageBox.Show("Please enter in the Data Password under under the label and click enter password button");
+          
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -47,9 +50,9 @@ namespace StudentManagementSystem
             
             Update update = new Update();
 
-            update.updateStudents(txtID.Text,txtName.Text,int.Parse(txtAge.Text),cmbCourse.Text);
+            update.updateStudents(txtID.Text,txtName.Text,int.Parse(txtAge.Text),cmbCourse.Text,handler,key);
             
-            List<StudentLogic> students = handler.read();
+            List<StudentLogic> students = handler.read(key);
             dgvDetails.DataSource = students;
         }
 
@@ -94,7 +97,7 @@ namespace StudentManagementSystem
         private void btnViewAll_Click(object sender, EventArgs e)
         {
             
-            List<StudentLogic> students = handler.read();
+            List<StudentLogic> students = handler.read(key);
             dgvDetails.DataSource = students;
         }
 
@@ -112,11 +115,11 @@ namespace StudentManagementSystem
             age = int.Parse(txtAge.Text);
             course = cmbCourse.SelectedItem.ToString();
 
-            Functions f = new Functions();
+            
 
-           student = f.addStudent(student,id,name,age,course);
+           student = f.addStudent(student,id,name,age,course,handler);
 
-            handler.write(student);
+            handler.write(student,key);
 
             dgvDetails.DataSource = student;
 
@@ -125,6 +128,7 @@ namespace StudentManagementSystem
         private void btnStatistics_Click(object sender, EventArgs e)
         {
             frmStatistics statistics = new frmStatistics();
+           
             this.Hide();
             statistics.ShowDialog();
         }
@@ -144,13 +148,13 @@ namespace StudentManagementSystem
                     if (result == DialogResult.Yes)
                     {
                         // Use the FileHandler class to remove the student from the file
-                        List<StudentLogic> students = handler.read();
+                        List<StudentLogic> students = handler.read(key);
 
                         // Filter out the student to be deleted
                         students = students.Where(s => s.StuID != studentId).ToList();
 
                         // Save the updated list back to the file
-                        handler.write(students);
+                        handler.write(students,key);
 
                         // Refresh DataGridView
                         dgvDetails.DataSource = null;  // Clear the DataSource first
@@ -175,6 +179,29 @@ namespace StudentManagementSystem
         private void txtID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+           
+            key = txtbPass.Text;
+            students = handler.read(key);
+            dgvDetails.DataSource=students;
+
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            if (f.check(txtbPass.Text) == true)
+            {
+                key = txtbPass.Text;
+               
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter in a password with length 16 or 24 or 32 char long");
+            }
         }
     }
 }

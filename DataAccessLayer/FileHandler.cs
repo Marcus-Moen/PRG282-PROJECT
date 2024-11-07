@@ -13,27 +13,33 @@ namespace StudentManagementSystem.DataAccessLayer
 {
     internal class FileHandler
     {
-        public string path = AppDomain.CurrentDomain.BaseDirectory + @"\StudentDetails.txt";
-        public string sumPath = AppDomain.CurrentDomain.BaseDirectory + @"\Summary.txt";
-        public string logPath = AppDomain.CurrentDomain.BaseDirectory + @"\logins.txt";
-        public List<StudentLogic> read()
+         string path = AppDomain.CurrentDomain.BaseDirectory + @"\StudentDetails.txt";
+         string sumPath = AppDomain.CurrentDomain.BaseDirectory + @"\Summary.txt";
+         string logPath = AppDomain.CurrentDomain.BaseDirectory + @"\logins.txt";
+         Functions functions = new Functions();
+      
+        public List<StudentLogic> read(string key)
         {
             List<StudentLogic> students = new List<StudentLogic>();
             string[] LineParts;
-            
+          
+
             using (StreamReader sr = new StreamReader(path))
             {
                 string line;
-                    while ((line = sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()) != null)
                 {
                     LineParts = line.Split(',');
-                    students.Add(new StudentLogic(LineParts[0], LineParts[1], int.Parse(LineParts[2]), LineParts[3]));
-
+                    if (functions.DecryptData(LineParts[0], key) != null)
+                    {
+                        students.Add(new StudentLogic(functions.DecryptData(LineParts[0], key), functions.DecryptData(LineParts[1], key), int.Parse(functions.DecryptData(LineParts[2], key)), functions.DecryptData(LineParts[3], key)));
+                        
+                    }
                 }
             }
             return students;
         }
-        public void write(List<StudentLogic> students)
+        public void write(List<StudentLogic> students,string key)
         {
             try
             {
@@ -45,7 +51,7 @@ namespace StudentManagementSystem.DataAccessLayer
                         for (int i = 0; i < students.Count; i++)
                         {
 
-                            sw.WriteLine(students[i].format());
+                            sw.WriteLine(students[i].format(key));
                         }
                     }
                 }
@@ -53,23 +59,23 @@ namespace StudentManagementSystem.DataAccessLayer
                 {
                     MessageBox.Show("File not found");
                 }
-                
+
             }
             catch (Exception)
             {
                 MessageBox.Show("Error writing to file");
                 throw;
             }
-            
+
         }
 
         public void writeSummary(string output)
         {
 
             using (StreamWriter sw = new StreamWriter(sumPath))
-            {          
+            {
 
-                    sw.WriteLine(output);    
+                sw.WriteLine(output);
             }
         }
         public List<User> logins()

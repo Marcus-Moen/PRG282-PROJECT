@@ -15,6 +15,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
         string stuName;
         int stuAge;
         string stuCourse;
+        Functions f = new Functions();
         public StudentLogic(string ID,string Name,int Age,string Course)
         {
             this.stuID = ID;
@@ -42,9 +43,11 @@ namespace StudentManagementSystem.BusinessLogicLayer
             get { return stuCourse; }
             set { stuCourse = value; }
         }
-        public string format()
+        public string format(string key)
         {
-            return StuID + "," + StuName + "," + StuAge.ToString() + "," + StuCourse;
+
+           return f.EncryptData(StuID,key) + "," + f.EncryptData(StuName,key) + "," + f.EncryptData(StuAge.ToString(),key) + "," + f.EncryptData(StuCourse, key);
+          
         }
 
   

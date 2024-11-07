@@ -1,18 +1,22 @@
 ﻿using StudentManagementSystem.DataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StudentManagementSystem.BusinessLogicLayer
 {
     internal class Functions
     {
-        FileHandler fh = new FileHandler();
-        public int[] countCourse(List<StudentLogic> student) 
+        private string key = Form1.key;
+        
+        public int[] countCourse(List<StudentLogic> student,FileHandler file) 
         {
-            student = fh.read();
+            student = file.read(key);
 
             int[] count = new int[4];
 
@@ -54,12 +58,12 @@ namespace StudentManagementSystem.BusinessLogicLayer
         }
 
 
-        public double[] percentageByCourse(List<StudentLogic> student)
+        public double[] percentageByCourse(List<StudentLogic> student,FileHandler file)
         {
             double total = 0;
 
 
-            int[] count = countCourse(student);
+            int[] count = countCourse(student,file);
 
           
 
@@ -79,12 +83,12 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         }
 
-        public double[] averageAge(List<StudentLogic> student)
+        public double[] averageAge(List<StudentLogic> student, FileHandler file)
       {
 
-            student = fh.read();
+            student = file.read(key);
 
-            int[] count = countCourse(student);
+            int[] count = countCourse(student, file);
 
             int tBOC = 0;
             int tDIT = 0;
@@ -126,19 +130,19 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         }
 
-        public string formatSummary(List<StudentLogic> student)
+        public string formatSummary(List<StudentLogic> student, FileHandler file)
         {
           
 
-            student = fh.read();
+            student = file.read(key);
 
             int[] Count = new int[4];
 
-            Count = countCourse(student);
+            Count = countCourse(student, file);
 
             int total = 0;
 
-            double average = totalAverage(student);
+            double average = totalAverage(student, file);
 
             foreach (int item in Count)
             {
@@ -156,13 +160,13 @@ Average age of the students: {average}";
 
         }
 
-        public double totalAverage(List<StudentLogic> student)
+        public double totalAverage(List<StudentLogic> student,FileHandler file)
         {
             double average = 0;
 
          
 
-            student = fh.read();
+            student = file.read(key);
 
             int count = 0;
 
@@ -180,10 +184,10 @@ Average age of the students: {average}";
             return average;
         }
 
-        public List<StudentLogic> addStudent(List<StudentLogic> student,string ID, string name,int age ,string course) 
+        public List<StudentLogic> addStudent(List<StudentLogic> student,string ID, string name,int age ,string course,FileHandler file) 
         {
 
-            student = fh.read();
+            student = file.read(key);
 
 
             student.Add(new StudentLogic(ID,name,age,course));
@@ -201,6 +205,70 @@ Average age of the students: {average}";
                 }
             }
             return false;
+        }
+
+        public bool check(string pass)
+        {
+            if (pass.Length == 16 || pass.Length == 24 || pass.Length == 32)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public string EncryptData(string data, string encryptionKey)
+        {
+
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(encryptionKey.PadRight(32)); // 256-bit key
+                aes.IV = new byte[16]; // AES block size (128-bit)
+
+                using (var memoryStream = new MemoryStream())
+                using (var cryptoStream = new CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                using (var writer = new StreamWriter(cryptoStream))
+                {
+                    writer.Write(data);
+                    writer.Close();
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                }
+            }
+
+
+        }
+        public string DecryptData(string encryptedData, string encryptionKey)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                try
+                {
+                    aes.Key = Encoding.UTF8.GetBytes(encryptionKey.PadRight(32)); // 256-bit key
+                    aes.IV = new byte[16];
+
+                    using (var memoryStream = new MemoryStream(Convert.FromBase64String(encryptedData)))
+                    using (var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                    using (var reader = new StreamReader(cryptoStream))
+                    {
+                        return reader.ReadToEnd();
+                    }
+
+                }
+                catch (CryptographicException ex)
+                {
+                    MessageBox.Show("wrong pass or corrupted ");
+                    return null;
+                    throw;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                    return null;
+                }
+
+            }
         }
     }
 }

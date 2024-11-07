@@ -10,14 +10,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Media.Animation;
 
 namespace StudentManagementSystem.PresentationLayer
 {
     public partial class frmStatistics : Form
     {
+        FileHandler file = new FileHandler();
+        Functions f = new Functions();
+        private  string key;
+        
         public frmStatistics()
         {
             InitializeComponent();
+
+            key = Form1.key;
         }
 
         private void kryptonGroupBox1_Panel_Paint(object sender, PaintEventArgs e)
@@ -29,11 +36,12 @@ namespace StudentManagementSystem.PresentationLayer
         {
             double[] values = new double[4];
 
-            List<StudentLogic> student = new List<StudentLogic>();
+            List<StudentLogic> student =new List<StudentLogic>();
+            student = file.read(key);
 
             chart1.Series.Clear();
 
-            Functions f = new Functions(); 
+            
 
             // Set up a new pie chart series
             Series series = new Series("Totals")
@@ -44,7 +52,7 @@ namespace StudentManagementSystem.PresentationLayer
             };
 
 
-            values = f.percentageByCourse(student);
+            values = f.percentageByCourse(student,file);
 
             series.Points.AddXY("Bachelor of Computing",values[0]);
             series.Points.AddXY("Diploma in IT",values[1]);
@@ -74,7 +82,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
            
 
-            Functions f = new Functions();
+          
 
 
             List<StudentLogic> student = new List<StudentLogic>();
@@ -82,7 +90,7 @@ namespace StudentManagementSystem.PresentationLayer
             double[] total= new double[4];
 
             chart1.Series.Clear();
-            total = f.averageAge(student);
+            total = f.averageAge(student, file);
 
             // Set up a new bar chart series
             Series series = new Series("Average Ages")
@@ -113,11 +121,11 @@ namespace StudentManagementSystem.PresentationLayer
             FileHandler f2 = new FileHandler();
 
             List<StudentLogic> student = new List<StudentLogic>();
-            string output = f.formatSummary(student);
+            string output = f.formatSummary(student, file);
 
             rtbSummary.Text = output;
 
-            f2.writeSummary(output);
+            //f2.writeSummary(output);
 
         }
 
