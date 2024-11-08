@@ -125,7 +125,7 @@ namespace StudentManagementSystem.PresentationLayer
 
             rtbSummary.Text = output;
 
-            //f2.writeSummary(output);
+            f2.writeSummary(output);
 
         }
 
@@ -139,8 +139,8 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
+            
             Form1 form = new Form1();
-
             this.Hide();
             form.ShowDialog();
         }

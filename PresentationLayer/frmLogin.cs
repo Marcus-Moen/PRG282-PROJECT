@@ -18,6 +18,7 @@ namespace StudentManagementSystem.PresentationLayer
        
         private Functions Functions = new Functions();
         private FileHandler file = new FileHandler();
+         Form1 frm = new Form1();
         public frmLogin()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
             
 
-            Form1 frm = new Form1();
+            
             if (Functions.signin(file.logins(), txtUsername.Text, txtPassword.Text))
             {
                 MessageBox.Show("Please enter in the Data Password under under the label and click enter password button");

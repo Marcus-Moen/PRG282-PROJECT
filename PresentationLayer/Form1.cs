@@ -19,14 +19,15 @@ namespace StudentManagementSystem
         static FileHandler handler = new FileHandler();
         Functions f = new Functions();
         public static string key;
-         List<StudentLogic> students = new List<StudentLogic>();
-        
-        public Form1()
+        List<StudentLogic> students = null;
+      
+       
+
+         public Form1()
         {
             InitializeComponent();
-            
-          
         }
+      
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -100,6 +101,7 @@ namespace StudentManagementSystem
             List<StudentLogic> students = handler.read(key);
             dgvDetails.DataSource = students;
         }
+        
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -205,5 +207,22 @@ namespace StudentManagementSystem
                 MessageBox.Show("Please enter in a password with length 16 or 24 or 32 char long");
             }
         }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            
+        }
+        
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }
