@@ -19,6 +19,9 @@ namespace StudentManagementSystem.PresentationLayer
     {
         FileHandler file = new FileHandler();
         Functions f = new Functions();
+        List<StudentLogic> student = new List<StudentLogic>();
+
+        private TextPrinter textPrinter;
         private  string key;
         
         public frmStatistics()
@@ -37,7 +40,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
             double[] values = new double[4];
 
-            List<StudentLogic> student =new List<StudentLogic>();
+            
             student = file.read(key);
 
             chart1.Series.Clear();
@@ -81,9 +84,13 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void rbTwo_CheckedChanged(object sender, EventArgs e)
         {
+
+
+
+
+
             chart1.Invalidate();
             chart1.Update();
-            List<StudentLogic> student = new List<StudentLogic>();
 
             chart1.Series.Clear();
             double[] total = f.averageAge(student, file);
@@ -113,16 +120,13 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnSummary_Click(object sender, EventArgs e)
         {
-           
-          //Generates summary writes it to the richtextbox and the textfile
-
-            List<StudentLogic> student = new List<StudentLogic>();
+            //Allows you to print the summary from a printer
             string output = f.formatSummary(student, file);
 
-            rtbSummary.Text = output;
+            textPrinter = new TextPrinter(output);
 
-            file.writeSummary(output);
-
+            textPrinter.Print();
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -143,6 +147,29 @@ namespace StudentManagementSystem.PresentationLayer
             form.ShowDialog();
         }
 
-        
+        private void frmStatistics_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            //lets you see a preview of the page that you want to print
+            Functions f = new Functions();
+
+            string output = f.formatSummary(student,file);
+
+            textPrinter = new TextPrinter(output);
+
+            textPrinter.ShowPrintPreview();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //saves summary to textfile
+            string output = f.formatSummary(student, file);
+            file.writeSummary(output);
+            MessageBox.Show("Summary was saved to textfile");
+        }
     }
 }

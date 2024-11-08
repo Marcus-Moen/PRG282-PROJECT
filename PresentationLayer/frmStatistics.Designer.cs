@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStatistics));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fpnlNavigationBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.btnStudents = new System.Windows.Forms.Button();
@@ -43,7 +43,8 @@
             this.rbTwo = new Krypton.Toolkit.KryptonRadioButton();
             this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.btnSummary = new Krypton.Toolkit.KryptonButton();
-            this.rtbSummary = new Krypton.Toolkit.KryptonRichTextBox();
+            this.btnPreview = new Krypton.Toolkit.KryptonButton();
+            this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -131,16 +132,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(167, 67);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(482, 351);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
@@ -179,27 +180,38 @@
             // 
             // btnSummary
             // 
-            this.btnSummary.Location = new System.Drawing.Point(716, 477);
+            this.btnSummary.Location = new System.Drawing.Point(716, 357);
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(199, 61);
             this.btnSummary.TabIndex = 19;
             this.btnSummary.Values.Text = "Print Summary";
             this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
             // 
-            // rtbSummary
+            // btnPreview
             // 
-            this.rtbSummary.Location = new System.Drawing.Point(691, 264);
-            this.rtbSummary.Name = "rtbSummary";
-            this.rtbSummary.Size = new System.Drawing.Size(321, 183);
-            this.rtbSummary.TabIndex = 20;
-            this.rtbSummary.Text = "";
+            this.btnPreview.Location = new System.Drawing.Point(716, 261);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(199, 61);
+            this.btnPreview.TabIndex = 21;
+            this.btnPreview.Values.Text = "Preview Summary";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(716, 452);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(199, 61);
+            this.btnSave.TabIndex = 22;
+            this.btnSave.Values.Text = "Save Summary";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 603);
-            this.Controls.Add(this.rtbSummary);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.btnSummary);
             this.Controls.Add(this.gbSummary);
             this.Controls.Add(this.chart1);
@@ -209,6 +221,7 @@
             this.PaletteMode = Krypton.Toolkit.PaletteMode.Microsoft365Black;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStatistics";
+            this.Load += new System.EventHandler(this.frmStatistics_Load);
             this.fpnlNavigationBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -234,6 +247,7 @@
         private Krypton.Toolkit.KryptonRadioButton rbTwo;
         private Krypton.Toolkit.KryptonRadioButton rbOne;
         private Krypton.Toolkit.KryptonButton btnSummary;
-        private Krypton.Toolkit.KryptonRichTextBox rtbSummary;
+        private Krypton.Toolkit.KryptonButton btnPreview;
+        private Krypton.Toolkit.KryptonButton btnSave;
     }
 }
