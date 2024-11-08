@@ -157,6 +157,8 @@ namespace StudentManagementSystem.PresentationLayer
 
             string output = f.formatSummary(student,file);
 
+            textPrinter = new TextPrinter(output);
+
             textPrinter.ShowPrintPreview();
         }
     }

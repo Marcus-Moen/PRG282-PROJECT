@@ -57,7 +57,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             // Define the heading text and font
-            string heading = "My Document Title";
+            string heading = "Summary";
             Font headingFont = new Font("Arial", 16, FontStyle.Bold);
 
             // Calculate the position for the heading
@@ -97,6 +97,9 @@ namespace StudentManagementSystem.BusinessLogicLayer
             currentCharIndex += charsFitted;
 
             e.HasMorePages = currentCharIndex < textToPrint.Length;
+
+            string footer = $"Time Stamp {DateTime.Now}";
+            e.Graphics.DrawString(footer, new Font("Arial", 10, FontStyle.Italic), Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Bottom + 10);
         }
     }
 }
