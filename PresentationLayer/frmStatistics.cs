@@ -40,7 +40,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
             double[] values = new double[4];
 
-            List<StudentLogic> student =new List<StudentLogic>();
+            
             student = file.read(key);
 
             chart1.Series.Clear();
@@ -89,7 +89,7 @@ namespace StudentManagementSystem.PresentationLayer
           
 
 
-            List<StudentLogic> student = new List<StudentLogic>();
+            
 
             double[] total= new double[4];
 
@@ -121,9 +121,6 @@ namespace StudentManagementSystem.PresentationLayer
         private void btnSummary_Click(object sender, EventArgs e)
         {
            
-          
-
-            List<StudentLogic> student = new List<StudentLogic>();
             string output = f.formatSummary(student, file);
 
             rtbSummary.Text = output;
@@ -158,7 +155,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
             Functions f = new Functions();
 
-            string output = f.formatSummary(student);
+            string output = f.formatSummary(student,file);
 
             textPrinter.ShowPrintPreview();
         }
