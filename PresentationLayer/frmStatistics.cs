@@ -19,9 +19,15 @@ namespace StudentManagementSystem.PresentationLayer
         FileHandler fh = new FileHandler();
 
         Functions f = new Functions();
+
+        List<StudentLogic> student = new List<StudentLogic>();
+
+        private TextPrinter textPrinter;
         public frmStatistics()
         {
             InitializeComponent();
+
+           
         }
 
         private void kryptonGroupBox1_Panel_Paint(object sender, PaintEventArgs e)
@@ -33,7 +39,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
             double[] values = new double[4];
 
-            List<StudentLogic> student = new List<StudentLogic>();
+          
 
             chart1.Series.Clear();
 
@@ -110,7 +116,7 @@ namespace StudentManagementSystem.PresentationLayer
            
           
 
-            List<StudentLogic> student = new List<StudentLogic>();
+         
             string output = f.formatSummary(student);
 
             rtbSummary.Text = output;
@@ -135,6 +141,18 @@ namespace StudentManagementSystem.PresentationLayer
             form.ShowDialog();
         }
 
-        
+        private void frmStatistics_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            Functions f = new Functions();
+
+            string output = f.formatSummary(student);
+
+            textPrinter.ShowPrintPreview();
+        }
     }
 }

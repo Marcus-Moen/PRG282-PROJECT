@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStatistics));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fpnlNavigationBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.btnStudents = new System.Windows.Forms.Button();
@@ -44,6 +44,7 @@
             this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.btnSummary = new Krypton.Toolkit.KryptonButton();
             this.rtbSummary = new Krypton.Toolkit.KryptonRichTextBox();
+            this.btnPreview = new Krypton.Toolkit.KryptonButton();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -131,16 +132,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(167, 67);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(482, 351);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
@@ -194,11 +195,21 @@
             this.rtbSummary.TabIndex = 20;
             this.rtbSummary.Text = "";
             // 
+            // btnPreview
+            // 
+            this.btnPreview.Location = new System.Drawing.Point(388, 464);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(199, 61);
+            this.btnPreview.TabIndex = 21;
+            this.btnPreview.Values.Text = "Preview Summary";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // frmStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 603);
+            this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.rtbSummary);
             this.Controls.Add(this.btnSummary);
             this.Controls.Add(this.gbSummary);
@@ -209,6 +220,7 @@
             this.PaletteMode = Krypton.Toolkit.PaletteMode.Microsoft365Black;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStatistics";
+            this.Load += new System.EventHandler(this.frmStatistics_Load);
             this.fpnlNavigationBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -235,5 +247,6 @@
         private Krypton.Toolkit.KryptonRadioButton rbOne;
         private Krypton.Toolkit.KryptonButton btnSummary;
         private Krypton.Toolkit.KryptonRichTextBox rtbSummary;
+        private Krypton.Toolkit.KryptonButton btnPreview;
     }
 }
