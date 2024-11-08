@@ -123,7 +123,9 @@ namespace StudentManagementSystem.PresentationLayer
            
             string output = f.formatSummary(student, file);
 
-            rtbSummary.Text = output;
+            textPrinter = new TextPrinter(output);
+
+            textPrinter.Print();
 
             file.writeSummary(output);
 

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStatistics));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fpnlNavigationBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pbxLogo = new Krypton.Toolkit.KryptonPictureBox();
             this.btnStudents = new System.Windows.Forms.Button();
@@ -43,7 +43,6 @@
             this.rbTwo = new Krypton.Toolkit.KryptonRadioButton();
             this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.btnSummary = new Krypton.Toolkit.KryptonButton();
-            this.rtbSummary = new Krypton.Toolkit.KryptonRichTextBox();
             this.btnPreview = new Krypton.Toolkit.KryptonButton();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -132,16 +131,16 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(167, 67);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(482, 351);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
@@ -187,17 +186,9 @@
             this.btnSummary.Values.Text = "Print Summary";
             this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
             // 
-            // rtbSummary
-            // 
-            this.rtbSummary.Location = new System.Drawing.Point(691, 264);
-            this.rtbSummary.Name = "rtbSummary";
-            this.rtbSummary.Size = new System.Drawing.Size(321, 183);
-            this.rtbSummary.TabIndex = 20;
-            this.rtbSummary.Text = "";
-            // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(388, 464);
+            this.btnPreview.Location = new System.Drawing.Point(716, 357);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(199, 61);
             this.btnPreview.TabIndex = 21;
@@ -210,7 +201,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 603);
             this.Controls.Add(this.btnPreview);
-            this.Controls.Add(this.rtbSummary);
             this.Controls.Add(this.btnSummary);
             this.Controls.Add(this.gbSummary);
             this.Controls.Add(this.chart1);
@@ -246,7 +236,6 @@
         private Krypton.Toolkit.KryptonRadioButton rbTwo;
         private Krypton.Toolkit.KryptonRadioButton rbOne;
         private Krypton.Toolkit.KryptonButton btnSummary;
-        private Krypton.Toolkit.KryptonRichTextBox rtbSummary;
         private Krypton.Toolkit.KryptonButton btnPreview;
     }
 }
