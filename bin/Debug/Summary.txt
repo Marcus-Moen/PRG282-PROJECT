@@ -1,0 +1,7 @@
+
+Total number of students: 4
+Bachelor of Computing : 1,
+Diploma in IT : 1,
+Bachelor in IT 1,
+Certificate: IT : 1
+Average age of the students: 20
