@@ -14,8 +14,11 @@ namespace StudentManagementSystem.BusinessLogicLayer
 
         public void updateStudents(string id, string name, int age, string course,FileHandler fileHandler,string key)
         {
+            //get list of all students
             var students = fileHandler.read(key);
             bool studentExists = false;
+            
+            //loop through the list if the student is found, update the values
             for (int i = 0; i < students.Count; i++)
             {
                 if (students[i].StuID == id)
@@ -28,11 +31,13 @@ namespace StudentManagementSystem.BusinessLogicLayer
                 }
             }
 
+            //If student is not found display error message
             if (!studentExists) 
             {
                 MessageBox.Show($"Student With ID {id} Does Not Exist");
             }
 
+            //Write the updated list of students to the textfile
             fileHandler.write(students,key);
         }
 

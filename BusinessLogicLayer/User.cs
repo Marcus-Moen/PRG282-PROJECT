@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagementSystem.BusinessLogicLayer
 {
+    //Class for login
     internal class User
     {
         string Username;

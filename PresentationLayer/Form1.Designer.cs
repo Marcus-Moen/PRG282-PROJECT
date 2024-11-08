@@ -97,7 +97,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = true;
-            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
+//            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnStatistics
             // 
@@ -163,7 +163,7 @@
             this.txtID.Size = new System.Drawing.Size(192, 25);
             this.txtID.TabIndex = 1;
             this.txtID.Text = "Enter Student ID";
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+//            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             this.txtID.Enter += new System.EventHandler(this.txtID_Enter);
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
@@ -400,7 +400,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management System";
            // this.Load += new System.EventHandler(this.Form1_Load);
-            this.Shown += new System.EventHandler(this.Form1_Shown);
+//            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.fpnlNavigationBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();

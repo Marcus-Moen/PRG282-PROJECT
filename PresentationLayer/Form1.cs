@@ -35,6 +35,7 @@ namespace StudentManagementSystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //Return to login form
             frmLogin login = new frmLogin();
 
             this.Hide();
@@ -49,6 +50,7 @@ namespace StudentManagementSystem
 
             if (dataPasswordEntered)
             {
+                //Searches for student and displays found student in the datagridView
                 dgvDetails.DataSource = search.searchStudents(txtSearch.Text);
             }
             else
@@ -64,6 +66,7 @@ namespace StudentManagementSystem
             Update update = new Update();
             if (dataPasswordEntered)
             {
+                //Updates Student and textfile
                 update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
 
                 List<StudentLogic> students = handler.read(key);
@@ -94,6 +97,7 @@ namespace StudentManagementSystem
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //Clears textboxes and inputs placeholders
             txtID.Text = "Enter Student ID";
             txtID.ForeColor = Color.Gray;
 
@@ -111,11 +115,13 @@ namespace StudentManagementSystem
 
         private void dgvDetails_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            //Check if selected row is not a heading to avoid errors
             if (e.RowIndex >= 0)
             {
                 var row = dgvDetails.Rows[e.RowIndex];
 
-
+                // Sets the text properties of the textboxes and combobox to the corresponding values from the DataGridView row,
+                // handling potential null values with the null-conditional operator.
                 txtID.Text = row.Cells["stuID"].Value?.ToString();
                 txtName.Text = row.Cells["stuName"].Value?.ToString();
                 txtAge.Text = row.Cells["stuAge"].Value?.ToString();
@@ -140,14 +146,10 @@ namespace StudentManagementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
-
             string id = "";
             string name = "";
             string age = "";
             string course = "";
-
-
 
             bool flagBlank = true;
             bool flagvalidate = true;
@@ -155,13 +157,15 @@ namespace StudentManagementSystem
             if (dataPasswordEntered)
             {
                 List<StudentLogic> student = new List<StudentLogic>();
-            student = handler.read(key);
+                student = handler.read(key);
+                //If inputs arent blank
                 if (flagBlank == CheckIfBlank())
                 {
                     id = txtID.Text;
                     name = txtName.Text;
                     age = txtAge.Text;
                     course = cmbCourse.SelectedItem.ToString();
+                    //Add student if ID is not the same as another student
                     if (flagvalidate == f.ValidateInput(id, age, handler, key))
                     {
                         student = f.addStudent(student, id, name, int.Parse(age), course, handler);
@@ -179,6 +183,7 @@ namespace StudentManagementSystem
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
+            //Changes to statistics form
             frmStatistics statistics = new frmStatistics();
             if (dataPasswordEntered)
             {
@@ -231,31 +236,25 @@ namespace StudentManagementSystem
         }
 
 
-        private void cmbCourse_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            dataPasswordEntered = true;
+            //checks the password and displays student details
+            
             key = txtbPass.Text;
             students = handler.read(key);
             dgvDetails.DataSource = students;
-
+            dataPasswordEntered = true;
         }
 
         private void btnChange_Click(object sender, EventArgs e)
         {
+            //Checks if the data password has been entered
             if (dataPasswordEntered)
             {
+                //Checks if new password is the correct length
                 if (f.check(txtbPass.Text) == true)
                 {
+                    //Write to textfile and replacing old key with new key
                     List<StudentLogic> oldList = handler.read(key);
                     key = txtbPass.Text;
                     handler.write(oldList, key);
@@ -275,17 +274,8 @@ namespace StudentManagementSystem
             
         }
 
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-
-
-        }
-
+        // Removes Placeholder text when entering textbox
         private void txtID_Enter(object sender, EventArgs e)
         {
             if (txtID.Text == "Enter Student ID")
@@ -341,7 +331,7 @@ namespace StudentManagementSystem
             }
         }
 
-        //string id,string name,string age,string course
+        //Checks for Blank values
         public bool CheckIfBlank()
         {
             bool flag = true;
@@ -383,7 +373,7 @@ namespace StudentManagementSystem
 
             return flag;
         }
-
+        
         public void ChangeTextBoxColor(TextBox textBox)
         {
             // Store the original color
@@ -409,7 +399,7 @@ namespace StudentManagementSystem
         public void ChangeComboBoxColor(ComboBox textBox)
         {
             // Store the original color
-            Color originalColor = textBox.ForeColor;
+            Color originalColor = Color.Black;
 
             // Start a new thread to handle the temporary color change
 

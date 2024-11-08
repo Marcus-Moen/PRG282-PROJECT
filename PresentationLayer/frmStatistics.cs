@@ -114,7 +114,7 @@ namespace StudentManagementSystem.PresentationLayer
         private void btnSummary_Click(object sender, EventArgs e)
         {
            
-          
+          //Generates summary writes it to the richtextbox and the textfile
 
             List<StudentLogic> student = new List<StudentLogic>();
             string output = f.formatSummary(student, file);
@@ -127,6 +127,7 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //Return to login form
             frmLogin login = new frmLogin();
 
             this.Hide();
@@ -135,7 +136,7 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            
+            //Return to Students Form
             Form1 form = new Form1();
             
             this.Hide();

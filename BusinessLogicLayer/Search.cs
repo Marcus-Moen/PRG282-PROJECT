@@ -20,11 +20,15 @@ namespace StudentManagementSystem.BusinessLogicLayer
         }
         public List<StudentLogic> searchStudents(string id)
         {
+            //Get list of all the students
             List<StudentLogic> students = fileHandler.read(key);
             List<StudentLogic> studentFound = new List<StudentLogic>();
             bool found = false;
+
+            //loop through the students
             for (int i = 0; i < students.Count; i++) 
             {
+                //If the student is found, break and make found true
                 if (students[i].StuID == id )
                 {
                     studentFound.Add(students[i]);
@@ -36,10 +40,11 @@ namespace StudentManagementSystem.BusinessLogicLayer
             if (!found) 
             {
                 MessageBox.Show($"Student with ID {id} not found");
-                return students;
+                return students; //returns all students
             }
             else
             {
+                //returns list of found students
                 return studentFound;
             }
 

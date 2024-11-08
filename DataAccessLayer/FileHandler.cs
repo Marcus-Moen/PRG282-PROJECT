@@ -23,6 +23,7 @@ namespace StudentManagementSystem.DataAccessLayer
             List<StudentLogic> students = new List<StudentLogic>();
             string[] LineParts;
           
+            //Read from the textfile while decrypting the data
 
             using (StreamReader sr = new StreamReader(path))
             {
@@ -30,8 +31,10 @@ namespace StudentManagementSystem.DataAccessLayer
                 while ((line = sr.ReadLine()) != null)
                 {
                     LineParts = line.Split(',');
+                    //If the student ID is not null then add student to list
                     if (functions.DecryptData(LineParts[0], key) != null)
                     {
+                        //Add  student to list and decrypt values
                         students.Add(new StudentLogic(functions.DecryptData(LineParts[0], key), functions.DecryptData(LineParts[1], key), int.Parse(functions.DecryptData(LineParts[2], key)), functions.DecryptData(LineParts[3], key)));
                         
                     }
@@ -41,6 +44,7 @@ namespace StudentManagementSystem.DataAccessLayer
         }
         public void write(List<StudentLogic> students,string key)
         {
+            //Writes given list to file
             try
             {
                 if (File.Exists(path))
@@ -50,7 +54,7 @@ namespace StudentManagementSystem.DataAccessLayer
 
                         for (int i = 0; i < students.Count; i++)
                         {
-
+                            //Writes to the file line by line and encrypts the data using the format(key) function
                             sw.WriteLine(students[i].format(key));
                         }
                     }
@@ -71,7 +75,7 @@ namespace StudentManagementSystem.DataAccessLayer
 
         public void writeSummary(string output)
         {
-
+            //Writes the summary to the Summary textfile
             using (StreamWriter sw = new StreamWriter(sumPath))
             {
 
@@ -80,6 +84,7 @@ namespace StudentManagementSystem.DataAccessLayer
         }
         public List<User> logins()
         {
+            //Reads from the login file and makes User Objects, returns a list of User Objects
             List<User> users = new List<User>();
             string[] LineParts;
             using (StreamReader sr = new StreamReader(logPath))
