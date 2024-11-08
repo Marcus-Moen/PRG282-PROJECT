@@ -70,7 +70,10 @@ namespace StudentManagementSystem
                 if (CheckIfBlank() == true)
                 {
                     update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
-
+                    txtID.ForeColor = Color.Black;
+                    txtAge.ForeColor = Color.Black;
+                    txtName.ForeColor = Color.Black;
+                    cmbCourse.ForeColor = Color.Black;
                     List<StudentLogic> students = handler.read(key);
                     dgvDetails.DataSource = students;
                 }
