@@ -19,6 +19,9 @@ namespace StudentManagementSystem.PresentationLayer
     {
         FileHandler file = new FileHandler();
         Functions f = new Functions();
+        List<StudentLogic> student = new List<StudentLogic>();
+
+        private TextPrinter textPrinter;
         private  string key;
         
         public frmStatistics()
@@ -146,6 +149,18 @@ namespace StudentManagementSystem.PresentationLayer
             form.ShowDialog();
         }
 
-        
+        private void frmStatistics_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            Functions f = new Functions();
+
+            string output = f.formatSummary(student);
+
+            textPrinter.ShowPrintPreview();
+        }
     }
 }

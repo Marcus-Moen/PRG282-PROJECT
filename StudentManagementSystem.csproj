@@ -63,6 +63,7 @@
     <Compile Include="BusinessLogicLayer\Search.cs" />
     <Compile Include="BusinessLogicLayer\Functions.cs" />
     <Compile Include="BusinessLogicLayer\StudentLogic.cs" />
+    <Compile Include="BusinessLogicLayer\TextPrinter.cs" />
     <Compile Include="BusinessLogicLayer\Update.cs" />
     <Compile Include="BusinessLogicLayer\User.cs" />
     <Compile Include="DataAccessLayer\FileHandler.cs" />
