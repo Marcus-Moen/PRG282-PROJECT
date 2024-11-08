@@ -24,7 +24,7 @@ namespace StudentManagementSystem
         Functions f = new Functions();
         public static string key;
         List<StudentLogic> students = null;
-
+        bool dataPasswordEntered = false;
 
 
         public Form1()
@@ -47,18 +47,33 @@ namespace StudentManagementSystem
         {
             Search search = new Search(key);
 
-            dgvDetails.DataSource = search.searchStudents(txtSearch.Text);
+            if (dataPasswordEntered)
+            {
+                dgvDetails.DataSource = search.searchStudents(txtSearch.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please enter data password before searching");
+            }
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
             Update update = new Update();
+            if (dataPasswordEntered)
+            {
+                update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
 
-            update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
-
-            List<StudentLogic> students = handler.read(key);
-            dgvDetails.DataSource = students;
+                List<StudentLogic> students = handler.read(key);
+                dgvDetails.DataSource = students;
+            }
+            else
+            {
+                MessageBox.Show("Please enter data Password before updating data");
+            }
+            
         }
 
         private void dgvDetails_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,16 +125,22 @@ namespace StudentManagementSystem
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-
-            List<StudentLogic> students = handler.read(key);
-            dgvDetails.DataSource = students;
+            if (dataPasswordEntered)
+            {
+                List<StudentLogic> students = handler.read(key);
+                dgvDetails.DataSource = students;
+            }
+            else
+            {
+                MessageBox.Show("Please enter data Password to view data");
+            }
+            
         }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            List<StudentLogic> student = new List<StudentLogic>();
-            student = handler.read(key);
+            
 
             string id = "";
             string name = "";
@@ -131,31 +152,44 @@ namespace StudentManagementSystem
             bool flagBlank = true;
             bool flagvalidate = true;
 
-            if (flagBlank == CheckIfBlank())
+            if (dataPasswordEntered)
             {
-                id = txtID.Text;
-                name = txtName.Text;
-                age = txtAge.Text;
-                course = cmbCourse.SelectedItem.ToString();
-                if (flagvalidate == f.ValidateInput(id, age,handler,key))
+                List<StudentLogic> student = new List<StudentLogic>();
+            student = handler.read(key);
+                if (flagBlank == CheckIfBlank())
                 {
-                    student = f.addStudent(student, id, name, int.Parse(age), course, handler);
-                    handler.write(student, key);
-                    dgvDetails.DataSource = student;
-
-
+                    id = txtID.Text;
+                    name = txtName.Text;
+                    age = txtAge.Text;
+                    course = cmbCourse.SelectedItem.ToString();
+                    if (flagvalidate == f.ValidateInput(id, age, handler, key))
+                    {
+                        student = f.addStudent(student, id, name, int.Parse(age), course, handler);
+                        handler.write(student, key);
+                        dgvDetails.DataSource = student;
+                    }
                 }
-
-
             }
+            else
+            {
+                MessageBox.Show("Please enter data Password before adding data");
+            }
+            
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
             frmStatistics statistics = new frmStatistics();
-
-            this.Hide();
-            statistics.ShowDialog();
+            if (dataPasswordEntered)
+            {
+                this.Hide();
+                statistics.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Cannot Enter Statistics without entering data Password");
+            }
+            
         }
 
 
@@ -209,7 +243,7 @@ namespace StudentManagementSystem
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-
+            dataPasswordEntered = true;
             key = txtbPass.Text;
             students = handler.read(key);
             dgvDetails.DataSource = students;
@@ -218,19 +252,27 @@ namespace StudentManagementSystem
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            if (f.check(txtbPass.Text) == true)
+            if (dataPasswordEntered)
             {
-                List<StudentLogic> oldList = handler.read(key);
-                key = txtbPass.Text;
-                handler.write(oldList, key);
-                students = handler.read(key);
-                dgvDetails.DataSource = students;
-
+                if (f.check(txtbPass.Text) == true)
+                {
+                    List<StudentLogic> oldList = handler.read(key);
+                    key = txtbPass.Text;
+                    handler.write(oldList, key);
+                    students = handler.read(key);
+                    dgvDetails.DataSource = students;
+                    MessageBox.Show($"Data Password has changed to: {txtbPass.Text}");
+                }
+                else
+                {
+                    MessageBox.Show("Please enter in a password with length 16 or 24 or 32 char long");
+                }
             }
             else
             {
-                MessageBox.Show("Please enter in a password with length 16 or 24 or 32 char long");
+                MessageBox.Show("Enter Password before changing it");
             }
+            
         }
 
         private void btnStudents_Click(object sender, EventArgs e)

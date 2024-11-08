@@ -88,7 +88,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
         }
 
         public double[] averageAge(List<StudentLogic> student, FileHandler file)
-      {
+        {
 
             student = file.read(key);
 
@@ -97,39 +97,70 @@ namespace StudentManagementSystem.BusinessLogicLayer
             int tBOC = 0;
             int tDIT = 0;
             int tBIT = 0;
-            int tCIT = 0;   
+            int tCIT = 0;
 
             double[] average = new double[4];
 
+            // Calculate the total age for each course
             foreach (var item in student)
             {
                 if (item.StuCourse == "Bachelor of Computing")
                 {
                     tBOC += item.StuAge;
                 }
-                else
-                if (item.StuCourse == "Diploma in IT")
+                else if (item.StuCourse == "Diploma in IT")
                 {
                     tDIT += item.StuAge;
                 }
-                else
-                if (item.StuCourse == "Bachelor in IT")
+                else if (item.StuCourse == "Bachelor in IT")
                 {
                     tBIT += item.StuAge;
                 }
-                else
-                if (item.StuCourse == "Certificate: IT")
+                else if (item.StuCourse == "Certificate: IT")
                 {
                     tCIT += item.StuAge;
                 }
             }
 
-            average[0] = tBOC / count[0];
-            average[1] = tDIT / count[1];
-            average[2] = tBIT / count[2];
-            average[3] = tCIT/ count[3];
-          
+            // Check if Zero first to avoid division by zero error
+            if (count[0] != 0)
+            {
+                average[0] = (double)tBOC / count[0];
+            }
+            else
+            {
+                average[0] = 0;
+            }
+
+            if (count[1] != 0)
+            {
+                average[1] = (double)tDIT / count[1];
+            }
+            else
+            {
+                average[1] = 0;
+            }
+
+            if (count[2] != 0)
+            {
+                average[2] = (double)tBIT / count[2];
+            }
+            else
+            {
+                average[2] = 0;
+            }
+
+            if (count[3] != 0)
+            {
+                average[3] = (double)tCIT / count[3];
+            }
+            else
+            {
+                average[3] = 0;
+            }
+
             return average;
+
         }
 
         public string formatSummary(List<StudentLogic> student, FileHandler file)
@@ -274,6 +305,7 @@ Average age of the students: {average}";
         }
         public string DecryptData(string encryptedData, string encryptionKey)
         {
+
             using (Aes aes = Aes.Create())
             {
                 try
@@ -293,7 +325,8 @@ Average age of the students: {average}";
                 {
                     MessageBox.Show("wrong pass or corrupted ");
                     return null;
-                    throw;
+                    
+                    
                 }
                 catch (Exception exc)
                 {

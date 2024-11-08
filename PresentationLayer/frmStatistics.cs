@@ -81,18 +81,12 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void rbTwo_CheckedChanged(object sender, EventArgs e)
         {
-          
-
-          
-
-
+            chart1.Invalidate();
+            chart1.Update();
             List<StudentLogic> student = new List<StudentLogic>();
 
-            double[] total= new double[4];
-
             chart1.Series.Clear();
-            total = f.averageAge(student, file);
-            chart1.Series.Clear();
+            double[] total = f.averageAge(student, file);
             
 
             // Set up a new bar chart series
@@ -113,6 +107,8 @@ namespace StudentManagementSystem.PresentationLayer
             chart1.ChartAreas[0].AxisX.Title = "Course";
             chart1.ChartAreas[0].AxisY.Title = "Average Ages";
 
+
+            
         }
 
         private void btnSummary_Click(object sender, EventArgs e)
