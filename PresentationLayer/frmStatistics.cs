@@ -11,17 +11,21 @@ using System.Threading.Tasks;
 using Krypton.Toolkit;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Media.Animation;
 
 namespace StudentManagementSystem.PresentationLayer
 {
     public partial class frmStatistics : KryptonForm
     {
-        FileHandler fh = new FileHandler();
-
+        FileHandler file = new FileHandler();
         Functions f = new Functions();
+        private  string key;
+        
         public frmStatistics()
         {
             InitializeComponent();
+
+            key = Form1.key;
         }
 
         private void kryptonGroupBox1_Panel_Paint(object sender, PaintEventArgs e)
@@ -33,10 +37,12 @@ namespace StudentManagementSystem.PresentationLayer
         {
             double[] values = new double[4];
 
-            List<StudentLogic> student = new List<StudentLogic>();
+            List<StudentLogic> student =new List<StudentLogic>();
+            student = file.read(key);
 
             chart1.Series.Clear();
 
+            Functions f = new Functions(); 
 
             // Set up a new pie chart series
             Series series = new Series("Totals")
@@ -47,7 +53,7 @@ namespace StudentManagementSystem.PresentationLayer
             };
 
 
-            values = f.percentageByCourse(student);
+            values = f.percentageByCourse(student,file);
 
             series.Points.AddXY("Bachelor of Computing",values[0]);
             series.Points.AddXY("Diploma in IT",values[1]);
@@ -77,11 +83,15 @@ namespace StudentManagementSystem.PresentationLayer
         {
           
 
+          
 
-            List<StudentLogic> student = fh.read();
 
-            double[] total = f.averageAge(student);
+            List<StudentLogic> student = new List<StudentLogic>();
 
+            double[] total= new double[4];
+
+            chart1.Series.Clear();
+            total = f.averageAge(student, file);
             chart1.Series.Clear();
             
 
@@ -111,11 +121,11 @@ namespace StudentManagementSystem.PresentationLayer
           
 
             List<StudentLogic> student = new List<StudentLogic>();
-            string output = f.formatSummary(student);
+            string output = f.formatSummary(student, file);
 
             rtbSummary.Text = output;
 
-            fh.writeSummary(output);
+            f2.writeSummary(output);
 
         }
 
@@ -129,8 +139,8 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
+            
             Form1 form = new Form1();
-
             this.Hide();
             form.ShowDialog();
         }

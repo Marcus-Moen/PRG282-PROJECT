@@ -15,8 +15,10 @@ namespace StudentManagementSystem.PresentationLayer
 {
     public partial class frmLogin : KryptonForm
     {
+       
+        private Functions Functions = new Functions();
         private FileHandler file = new FileHandler();
-        private Functions Functions = new Functions(); 
+         Form1 frm = new Form1();
         public frmLogin()
         {
             InitializeComponent();
@@ -41,22 +43,21 @@ namespace StudentManagementSystem.PresentationLayer
         {
             
 
-            Form1 frm = new Form1();
+            
             if (Functions.signin(file.logins(), txtUsername.Text, txtPassword.Text))
             {
+                MessageBox.Show("Please enter in the Data Password under under the label and click enter password button");
                 frm.ShowDialog();
                 this.Close();
+                
             }
             else
-            {
-                MessageBox.Show("Incorrect login Details");
+                {
+                    MessageBox.Show("Incorrect login Details");
+                }
+
             }
 
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

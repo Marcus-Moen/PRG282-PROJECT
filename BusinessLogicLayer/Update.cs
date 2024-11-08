@@ -10,11 +10,11 @@ namespace StudentManagementSystem.BusinessLogicLayer
 {
     internal class Update
     {
-        FileHandler fileHandler = new FileHandler();
+       
 
-        public void updateStudents(string id, string name, int age, string course)
+        public void updateStudents(string id, string name, int age, string course,FileHandler fileHandler,string key)
         {
-            var students = fileHandler.read();
+            var students = fileHandler.read(key);
             bool studentExists = false;
             for (int i = 0; i < students.Count; i++)
             {
@@ -33,7 +33,7 @@ namespace StudentManagementSystem.BusinessLogicLayer
                 MessageBox.Show($"Student With ID {id} Does Not Exist");
             }
 
-            fileHandler.write(students);
+            fileHandler.write(students,key);
         }
 
     }
