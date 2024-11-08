@@ -220,8 +220,9 @@ namespace StudentManagementSystem
         {
             if (f.check(txtbPass.Text) == true)
             {
+                List<StudentLogic> oldList = handler.read(key);
                 key = txtbPass.Text;
-                handler.write(students, key);
+                handler.write(oldList, key);
                 students = handler.read(key);
                 dgvDetails.DataSource = students;
 
