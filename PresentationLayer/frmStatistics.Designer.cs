@@ -44,6 +44,7 @@
             this.rbOne = new Krypton.Toolkit.KryptonRadioButton();
             this.btnSummary = new Krypton.Toolkit.KryptonButton();
             this.btnPreview = new Krypton.Toolkit.KryptonButton();
+            this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -179,7 +180,7 @@
             // 
             // btnSummary
             // 
-            this.btnSummary.Location = new System.Drawing.Point(716, 477);
+            this.btnSummary.Location = new System.Drawing.Point(716, 357);
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(199, 61);
             this.btnSummary.TabIndex = 19;
@@ -188,18 +189,28 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(716, 357);
+            this.btnPreview.Location = new System.Drawing.Point(716, 261);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(199, 61);
             this.btnPreview.TabIndex = 21;
             this.btnPreview.Values.Text = "Preview Summary";
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(716, 452);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(199, 61);
+            this.btnSave.TabIndex = 22;
+            this.btnSave.Values.Text = "Save Summary";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // frmStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 603);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.btnSummary);
             this.Controls.Add(this.gbSummary);
@@ -237,5 +248,6 @@
         private Krypton.Toolkit.KryptonRadioButton rbOne;
         private Krypton.Toolkit.KryptonButton btnSummary;
         private Krypton.Toolkit.KryptonButton btnPreview;
+        private Krypton.Toolkit.KryptonButton btnSave;
     }
 }

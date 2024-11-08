@@ -120,17 +120,13 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnSummary_Click(object sender, EventArgs e)
         {
-            //Generates summary writes it to the textfile
+            //Allows you to print the summary from a printer
             string output = f.formatSummary(student, file);
 
             textPrinter = new TextPrinter(output);
 
             textPrinter.Print();
-
-
-
-
-            file.writeSummary(output);
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -158,6 +154,7 @@ namespace StudentManagementSystem.PresentationLayer
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
+            //lets you see a preview of the page that you want to print
             Functions f = new Functions();
 
             string output = f.formatSummary(student,file);
@@ -165,6 +162,14 @@ namespace StudentManagementSystem.PresentationLayer
             textPrinter = new TextPrinter(output);
 
             textPrinter.ShowPrintPreview();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //saves summary to textfile
+            string output = f.formatSummary(student, file);
+            file.writeSummary(output);
+            MessageBox.Show("Summary was saved to textfile");
         }
     }
 }
