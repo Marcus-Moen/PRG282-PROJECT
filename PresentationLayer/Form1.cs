@@ -67,10 +67,14 @@ namespace StudentManagementSystem
             if (dataPasswordEntered)
             {
                 //Updates Student and textfile
-                update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
+                if (CheckIfBlank() == true)
+                {
+                    update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
 
-                List<StudentLogic> students = handler.read(key);
-                dgvDetails.DataSource = students;
+                    List<StudentLogic> students = handler.read(key);
+                    dgvDetails.DataSource = students;
+                }
+                
             }
             else
             {
