@@ -119,7 +119,7 @@ namespace StudentManagementSystem
         private void btnAdd_Click(object sender, EventArgs e)
         {
             List<StudentLogic> student = new List<StudentLogic>();
-
+            student = handler.read(key);
 
             string id = "";
             string name = "";
@@ -137,16 +137,10 @@ namespace StudentManagementSystem
                 name = txtName.Text;
                 age = txtAge.Text;
                 course = cmbCourse.SelectedItem.ToString();
-                if (flagvalidate == f.ValidateInput(id, age))
+                if (flagvalidate == f.ValidateInput(id, age,handler,key))
                 {
                     student = f.addStudent(student, id, name, int.Parse(age), course, handler);
-
-
-
-                    student = f.addStudent(student, id, name, int.Parse(age), course, handler);
-
                     handler.write(student, key);
-
                     dgvDetails.DataSource = student;
 
 

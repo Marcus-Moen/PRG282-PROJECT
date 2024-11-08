@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 
 namespace StudentManagementSystem.BusinessLogicLayer
@@ -188,7 +189,7 @@ Average age of the students: {average}";
         public List<StudentLogic> addStudent(List<StudentLogic> student,string ID, string name,int age ,string course,FileHandler file) 
         {
 
-            student = file.read(key);
+            
 
 
             student.Add(new StudentLogic(ID,name,age,course));
@@ -209,11 +210,11 @@ Average age of the students: {average}";
             return false;
         }
 
-        public bool ValidateInput(string id, string age)
+        public bool ValidateInput(string id, string age,FileHandler file,string key)
         {
             bool flag = true;
 
-            FileHandler handler = new FileHandler();
+            
 
             foreach (char c in age)
             {
@@ -225,7 +226,7 @@ Average age of the students: {average}";
                 }
             }
 
-            List<StudentLogic> student = handler.read(key);
+            List<StudentLogic> student = file.read(key);
 
             foreach (var item in student)
             {
