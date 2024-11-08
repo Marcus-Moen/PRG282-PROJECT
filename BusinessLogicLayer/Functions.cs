@@ -225,7 +225,7 @@ Average age of the students: {average}";
                 }
             }
 
-            List<StudentLogic> student = handler.read();
+            List<StudentLogic> student = handler.read(key);
 
             foreach (var item in student)
             {
@@ -239,11 +239,6 @@ Average age of the students: {average}";
             return flag;
 
         }
-
-       
-
-    }
-
         public bool check(string pass)
         {
             if (pass.Length == 16 || pass.Length == 24 || pass.Length == 32)
@@ -307,5 +302,10 @@ Average age of the students: {average}";
 
             }
         }
+
+
     }
+
+        
+    
 }

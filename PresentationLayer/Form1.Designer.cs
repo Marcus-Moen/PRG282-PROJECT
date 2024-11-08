@@ -52,6 +52,10 @@
             this.btnViewAll = new System.Windows.Forms.Button();
             this.cmbCourse = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEnter = new Krypton.Toolkit.KryptonButton();
+            this.btnChange = new Krypton.Toolkit.KryptonButton();
+            this.txtbPass = new System.Windows.Forms.TextBox();
+            this.lblPass = new System.Windows.Forms.Label();
             this.fpnlNavigationBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -93,6 +97,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = true;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnStatistics
             // 
@@ -325,11 +330,49 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnEnter
+            // 
+            this.btnEnter.Location = new System.Drawing.Point(119, 408);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(113, 62);
+            this.btnEnter.TabIndex = 20;
+            this.btnEnter.Values.Text = "Enter Password";
+            this.btnEnter.Click += new System.EventHandler(this.kryptonButton1_Click);
+            // 
+            // btnChange
+            // 
+            this.btnChange.Location = new System.Drawing.Point(238, 408);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(117, 62);
+            this.btnChange.TabIndex = 21;
+            this.btnChange.Values.Text = "Change Password";
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
+            // txtbPass
+            // 
+            this.txtbPass.Location = new System.Drawing.Point(138, 348);
+            this.txtbPass.Name = "txtbPass";
+            this.txtbPass.Size = new System.Drawing.Size(169, 25);
+            this.txtbPass.TabIndex = 22;
+            // 
+            // lblPass
+            // 
+            this.lblPass.AutoSize = true;
+            this.lblPass.Location = new System.Drawing.Point(135, 328);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(95, 17);
+            this.lblPass.TabIndex = 23;
+            this.lblPass.Text = "Data Password";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 581);
+            this.Controls.Add(this.lblPass);
+            this.Controls.Add(this.txtbPass);
+            this.Controls.Add(this.btnChange);
+            this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cmbCourse);
             this.Controls.Add(this.btnViewAll);
@@ -356,6 +399,8 @@
             this.PaletteMode = Krypton.Toolkit.PaletteMode.Microsoft365Black;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management System";
+           // this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.fpnlNavigationBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
@@ -388,6 +433,10 @@
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.ComboBox cmbCourse;
         private System.Windows.Forms.Button btnDelete;
+        private Krypton.Toolkit.KryptonButton btnEnter;
+        private Krypton.Toolkit.KryptonButton btnChange;
+        private System.Windows.Forms.TextBox txtbPass;
+        private System.Windows.Forms.Label lblPass;
     }
 }
 

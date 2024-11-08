@@ -125,7 +125,7 @@ namespace StudentManagementSystem.PresentationLayer
 
             rtbSummary.Text = output;
 
-            f2.writeSummary(output);
+            file.writeSummary(output);
 
         }
 

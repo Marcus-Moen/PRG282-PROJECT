@@ -1,4 +1,6 @@
-﻿namespace StudentManagementSystem.PresentationLayer
+﻿using System;
+
+namespace StudentManagementSystem.PresentationLayer
 {
     partial class frmLogin
     {
@@ -172,6 +174,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            
         }
 
         #endregion
