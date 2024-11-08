@@ -45,7 +45,7 @@ namespace StudentManagementSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Search search = new Search();
+            Search search = new Search(key);
 
             dgvDetails.DataSource = search.searchStudents(txtSearch.Text);
         }

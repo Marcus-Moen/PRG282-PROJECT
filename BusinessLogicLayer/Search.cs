@@ -13,10 +13,10 @@ namespace StudentManagementSystem.BusinessLogicLayer
     internal class Search
     {
         FileHandler fileHandler = new FileHandler();
-        private string key;
-        public void getKey(string possibleKey)
+        string key;
+        public Search(string key)
         {
-            key = possibleKey;
+            this.key = key;
         }
         public List<StudentLogic> searchStudents(string id)
         {
