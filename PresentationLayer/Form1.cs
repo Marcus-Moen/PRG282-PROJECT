@@ -24,7 +24,7 @@ namespace StudentManagementSystem
         Functions f = new Functions();
         public static string key;
         List<StudentLogic> students = null;
-        bool dataPasswordEntered = false;
+        public bool dataPasswordEntered = false;
 
 
         public Form1()

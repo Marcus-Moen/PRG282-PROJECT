@@ -142,7 +142,7 @@ namespace StudentManagementSystem.PresentationLayer
         {
             //Return to Students Form
             Form1 form = new Form1();
-            
+            form.dataPasswordEntered = true;
             this.Hide();
             form.ShowDialog();
         }
