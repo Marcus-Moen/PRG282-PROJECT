@@ -37,7 +37,7 @@ namespace StudentManagementSystem
         {
             //Return to login form
             frmLogin login = new frmLogin();
-
+            dataPasswordEntered = false;
             this.Hide();
             login.ShowDialog();
 
@@ -67,7 +67,7 @@ namespace StudentManagementSystem
             if (dataPasswordEntered)
             {
                 //Updates Student and textfile
-                if (CheckIfBlank() == true)
+                if (CheckIfBlank() == true && validateDigit(txtAge.Text) == true) 
                 {
                     update.updateStudents(txtID.Text, txtName.Text, int.Parse(txtAge.Text), cmbCourse.Text, handler, key);
                     txtID.ForeColor = Color.Black;
@@ -85,6 +85,7 @@ namespace StudentManagementSystem
             }
             
         }
+
 
         private void dgvDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -380,7 +381,24 @@ namespace StudentManagementSystem
 
             return flag;
         }
-        
+
+        public bool validateDigit(string age)
+        {
+            //checks if all characters in a string are numbers
+            bool digit = true;
+            foreach (char c in age)
+            {
+                if (!char.IsDigit(c))
+                {
+                    MessageBox.Show("Age can only contain numbers");
+                    digit = false;
+                    break;
+
+                }
+            }
+
+            return digit;
+        }
         public void ChangeTextBoxColor(TextBox textBox)
         {
             // Store the original color
